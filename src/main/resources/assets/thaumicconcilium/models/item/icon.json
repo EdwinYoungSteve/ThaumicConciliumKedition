@@ -1,0 +1,20 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "thaumicconcilium:research/r_thaumaturge"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "meta": 1
+      },
+      "model": "thaumicconcilium:item/thaumaturge_mad"
+    },
+    {
+      "predicate": {
+        "meta": 2
+      },
+      "model": "thaumicconcilium:item/golem_bydlo"
+    }
+  ]
+}

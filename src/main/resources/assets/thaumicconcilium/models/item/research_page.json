@@ -1,0 +1,44 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "thaumicconcilium:items/page_rose"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "meta": 1
+      },
+      "model": "thaumicconcilium:item/page_darkred"
+    },
+    {
+      "predicate": {
+        "meta": 2
+      },
+      "model": "thaumicconcilium:item/page_orange"
+    },
+    {
+      "predicate": {
+        "meta": 3
+      },
+      "model": "thaumicconcilium:item/page_black"
+    },
+    {
+      "predicate": {
+        "meta": 4
+      },
+      "model": "thaumicconcilium:item/page_purple"
+    },
+    {
+      "predicate": {
+        "meta": 5
+      },
+      "model": "thaumicconcilium:item/page_lightblue"
+    },
+    {
+      "predicate": {
+        "meta": 6
+      },
+      "model": "thaumicconcilium:item/page_white"
+    }
+  ]
+}

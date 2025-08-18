@@ -1,0 +1,11 @@
+[
+  {
+    "modid": "thaumicconcilium",
+    "name": "Thaumic Concilium Kedition",
+    "description": "a port of Thaumic Concilium mod",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "authorList": ["keletu", "Ilya3000"]
+  }
+]

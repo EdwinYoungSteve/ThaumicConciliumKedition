@@ -1,0 +1,665 @@
+{
+  "entries": [
+    {
+      "key": "!Thaumaturge",
+      "name": "research.Thaumaturge.title",
+      "icons": [
+        "thaumicconcilium:textures/research/r_thaumaturge.png"
+      ],
+      "category": "BASICS",
+      "location": [
+        -12,
+        0
+      ],
+      "meta": [
+        "HEX",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.Thaumaturge.stage.1"
+        }
+      ]
+    },
+    {
+      "key": "!MadThaumaturge",
+      "name": "research.MadThaumaturge.title",
+      "icons": [
+        "thaumicconcilium:textures/research/r_madthaumaturge.png"
+      ],
+      "category": "BASICS",
+      "location": [
+        -12,
+        1
+      ],
+      "meta": [
+        "HEX",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.MadThaumaturge.stage.1"
+        }
+      ]
+    },
+    {
+      "key": "!SpecialCreatures",
+      "name": "research.SpecialCreatures.title",
+      "icons": [
+        "thaumicconcilium:textures/research/r_thaumicconcilium.png"
+      ],
+      "category": "BASICS",
+      "location": [
+        -12,
+        2
+      ],
+      "meta": [
+        "HEX",
+        "HIDDEN",
+        "SPIKY"
+      ],
+      "stages": [
+        {
+          "text": "research.SpecialCreatures.stage.1"
+        }
+      ],
+      "addenda": [
+        {
+          "text": "research.QuicksilverElemental.stage.1",
+          "required_research": [
+            "!QuicksilverElemental"
+          ]
+        },
+        {
+          "text": "research.OverAnimated.stage.1",
+          "required_research": [
+            "!OverAnimated"
+          ]
+        },
+        {
+          "text": "research.CrimsonPaladin.stage.1",
+          "required_research": [
+            "!CrimsonPaladin"
+          ]
+        },
+        {
+          "text": "research.Dissolved.stage.1",
+          "required_research": [
+            "!Dissolved"
+          ]
+        },
+        {
+          "text": "research.VengefulGolem.stage.1",
+          "required_research": [
+            "!VengefulGolem"
+          ]
+        },
+        {
+          "text": "research.StrayedMirror.stage.1",
+          "required_research": [
+            "!StrayedMirror"
+          ]
+        },
+        {
+          "text": "research.Samurai.stage.1",
+          "required_research": [
+            "!Samurai"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "QUICKSILVER_CRUCIBLE",
+      "name": "research.QuickSilverCrucible.title",
+      "icons": [
+        "thaumicconcilium:quicksilver_crucible"
+      ],
+      "parents": [
+        "!QuicksilverElemental",
+        "!SpecialCreatures",
+        "~BASEALCHEMY"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "location": [
+        -6,
+        1
+      ],
+      "stages": [
+        {
+          "text": "research.QuickSilverCrucible.stage.1"
+        }
+      ]
+    },
+    {
+      "key": "!CrimsonAnnales",
+      "name": "research.CRIMSONANNALES.title",
+      "icons": [
+        "thaumicconcilium:crimson_annales"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "location": [
+        0,
+        2
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "stages": [
+        {
+          "text": "research.CRIMSONANNALES.stage.1",
+          "warp": 3
+        }
+      ]
+    },
+    {
+      "key": "CRIMSONPONTIFEX",
+      "name": "research.CRIMSONPONTIFEX.title",
+      "icons": [
+        "thaumicconcilium:textures/research/r_pontifex.png"
+      ],
+      "parents": [
+        "PRIMORDIAL_WISP",
+        "HEXOFPREDICTABILITY",
+        "!CrimsonAnnales"
+      ],
+      "siblings": [
+        "CRIMSONINITIATION",
+        "PONTIFEXHAMMER"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "location": [
+        0,
+        4
+      ],
+      "meta": [
+        "REVERSE"
+      ],
+      "stages": [
+        {
+          "text": "research.CRIMSONPONTIFEX.stage.1",
+          "required_research": [
+            "f_crimsonnotes"
+          ],
+          "warp": 6
+        },
+        {
+          "text": "research.CRIMSONPONTIFEX.stage.2"
+        }
+      ]
+    },
+    {
+      "key": "CRIMSONINITIATION",
+      "name": "research.CRIMSONINITIATION.title",
+      "icons": [
+        "thaumicconcilium:textures/research/crimson_initiation.png"
+      ],
+      "parents": [
+        "CRIMSONPONTIFEX"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "location": [
+        -2,
+        6
+      ],
+      "meta": [
+        "REVERSE",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.CRIMSONINITIATION.stage.1"
+        }
+      ]
+    },
+    {
+      "key": "PONTIFEXHAMMER",
+      "name": "research.PONTIFEXHAMMER.title",
+      "icons": [
+        "thaumicconcilium:molot"
+      ],
+      "parents": [
+        "CRIMSONPONTIFEX"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "location": [
+        2,
+        6
+      ],
+      "meta": [
+        "REVERSE",
+        "HIDDEN"
+      ],
+      "stages": [
+        {
+          "text": "research.PONTIFEXHAMMER.stage.1",
+          "recipes": [
+            "thaumicconcilium:crimson_hammer"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "GOLEMBYDLO",
+      "name": "research.GOLEMBYDLO.title",
+      "icons": [
+        "thaumicconcilium:textures/research/r_golembydlo.png"
+      ],
+      "category": "ISORROPIA",
+      "parents": [
+        "SPECIEINFUSIONS",
+        "!MadThaumaturge",
+        "MINDBIOTHAUMIC",
+        "BASEELDRITCH"
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        11,
+        -2
+      ],
+      "stages": [
+        {
+          "text": "research.GOLEMBYDLO.stage.0",
+          "required_knowledge": [
+            "THEORY;INFUSION;2",
+            "THEORY;GOLEMANCY;2",
+            "THEORY;ELDRITCH;2"
+          ],
+          "required_item": [
+            "thaumcraft:mind;1;1"
+          ],
+          "warp": 3
+        },
+        {
+          "text": "research.GOLEMBYDLO.stage.1",
+          "recipes": [
+            "thaumicconcilium:golem_bydlo"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "!RunicWindings",
+      "name": "research.RUNICWINDINGS.title",
+      "icons": [
+        "thaumicconcilium:runic_chestplate",
+        "thaumicconcilium:runic_leggings"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        2,
+        -2
+      ],
+      "stages": [
+        {
+          "text": "research.RUNICWINDINGS.stage.0",
+          "recipes": [
+            "thaumicconcilium:runic_winding_chest",
+            "thaumicconcilium:runic_winding_legs"
+          ],
+          "warp": 3
+        }
+      ]
+    },
+    {
+      "key": "!FocusImpulse",
+      "name": "research.FOCUSIMPULSE.title",
+      "icons": [
+        "focus:thaumicconcilium.IMPULSE"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        0,
+        -2
+      ],
+      "stages": [
+        {
+          "text": "research.FOCUSIMPULSE.stage.0"
+        }
+      ]
+    },
+    {
+      "key": "!FocusPositiveBurst",
+      "name": "research.FOCUSPOSITIVEBURST.title",
+      "icons": [
+        "focus:thaumicconcilium.POSITIVEBURST"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "parents": [
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -2,
+        -2
+      ],
+      "stages": [
+        {
+          "text": "research.FOCUSPOSITIVEBURST.stage.0"
+        }
+      ]
+    },
+    {
+      "key": "!FocusReflection",
+      "name": "research.FOCUSREFLECTION.title",
+      "icons": [
+        "focus:thaumicconcilium.REFLECTION"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -2,
+        0
+      ],
+      "stages": [
+        {
+          "text": "research.FOCUSREFLECTION.stage.0",
+          "warp": 4
+        }
+      ]
+    },
+    {
+      "key": "!BottleThickTaint",
+      "name": "research.BOTTLEOFTHICKTAINT.title",
+      "icons": [
+        "thaumicconcilium:bottle_thick_taint"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -2,
+        2
+      ],
+      "stages": [
+        {
+          "text": "research.BOTTLEOFTHICKTAINT.stage.0",
+          "recipes": [
+            "thaumicconcilium:bottle_thick_taint"
+          ],
+          "warp": 2
+        }
+      ]
+    },
+    {
+      "key": "!VisConductor",
+      "name": "research.VISCONDUCTOR.title",
+      "icons": [
+        "thaumicconcilium:vis_conductor"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -4,
+        0
+      ],
+      "stages": [
+        {
+          "text": "research.VISCONDUCTOR.stage.0",
+          "recipes": [
+            "thaumicconcilium:vis_conductor"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "!DestCrystal",
+      "name": "research.DESTCRYSTAL.title",
+      "icons": [
+        "thaumicconcilium:destabilized_crystal"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -4,
+        -2
+      ],
+      "stages": [
+        {
+          "text": "research.DESTCRYSTAL.stage.0"
+        }
+      ]
+    },
+    {
+      "key": "DUMPJACKBOOTS",
+      "name": "research.DUMPJACKBOOTS.title",
+      "icons": [
+        "thaumicconcilium:dump_jackboots"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "parents": [
+        "BOOTSTRAVELLER",
+        "ITEM_GRATE",
+        "!DestCrystal"
+      ],
+      "meta": [
+        "REVERSE"
+      ],
+      "location": [
+        -6,
+        -3
+      ],
+      "stages": [
+        {
+          "text": "research.DUMPJACKBOOTS.stage.0",
+          "required_knowledge": [
+            "OBSERVATION;INFUSION;1",
+            "THEORY;INFUSION;1"
+          ]
+        },
+        {
+          "text": "research.DUMPJACKBOOTS.stage.1",
+          "recipes": [
+            "thaumicconcilium:dump_jackboots"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TIGHTBELT",
+      "name": "research.TIGHTBELT.title",
+      "icons": [
+        "thaumicconcilium:tight_belt"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "parents": [
+        "!BottleThickTaint",
+        "~RIFTCLOSER",
+        "~THAUMOSTATIC_GIRDLE",
+        "~!DestCrystal"
+      ],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "location": [
+        -3,
+        4
+      ],
+      "stages": [
+        {
+          "text": "research.TIGHTBELT.stage.0",
+          "required_knowledge": [
+            "OBSERVATION;INFUSION;3",
+            "THEORY;ALCHEMY;1",
+            "THEORY;INFUSION;2"
+          ],
+          "required_item": [
+            "thaumicconcilium:bottle_thick_taint"
+          ],
+          "warp": 4
+        },
+        {
+          "text": "research.TIGHTBELT.stage.1",
+          "recipes": [
+            "thaumicconcilium:tight_belt"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BURDENINGAMULET",
+      "name": "research.BURDENINGAMULET.title",
+      "icons": [
+        "thaumicconcilium:burdening_amulet"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "parents": [
+        "TIGHTBELT",
+        "~FRACTURE_THEORY"
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -4,
+        3
+      ],
+      "stages": [
+        {
+          "text": "research.BURDENINGAMULET.stage.0",
+          "required_knowledge": [
+            "OBSERVATION;INFUSION;3",
+            "OBSERVATION;ELDRITCH;3",
+            "THEORY;INFUSION;1",
+            "THEORY;ELDRITCH;1"
+          ],
+          "required_craft": [
+            "thaumicconcilium:tight_belt"
+          ],
+          "warp": 3
+        },
+        {
+          "text": "research.BURDENINGAMULET.stage.1",
+          "recipes": [
+            "thaumicconcilium:burdening_amulet"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "DEMATUPGRADE",
+      "name": "research.DEMATUPGRADE.title",
+      "icons": [
+        "thaumicconcilium:textures/misc/dematerialization.png"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "parents": [
+        "RIFTCLOSER",
+        "~!VisConductor"
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        4,
+        -2
+      ],
+      "stages": [
+        {
+          "text": "research.DEMATUPGRADE.stage.0",
+          "required_knowledge": [
+            "OBSERVATION;AUROMANCY;2",
+            "THEORY;AUROMANCY;2"
+          ],
+          "required_item": [
+            "thaumcraft:void_seed"
+          ]
+        },
+        {
+          "text": "research.DEMATUPGRADE.stage.1"
+        }
+      ]
+    },
+    {
+      "key": "VISCONDENSER",
+      "name": "research.VISCONDENSER.title",
+      "icons": [
+        "thaumicconcilium:vis_condenser"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "parents": [
+        "DEMATUPGRADE",
+        "~FRACTURE_THEORY"
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        4,
+        0
+      ],
+      "stages": [
+        {
+          "text": "research.VISCONDENSER.stage.0",
+          "required_knowledge": [
+            "OBSERVATION;ARTIFICE;2",
+            "THEORY;AUROMANCY;1",
+            "THEORY;ARTIFICE;1"
+          ],
+          "required_item": [
+            "thaumicconcilium:destabilized_crystal"
+          ]
+        },
+        {
+          "text": "research.VISCONDENSER.stage.1",
+          "recipes": [
+            "thaumicconcilium:vis_condenser"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "HEXOFPREDICTABILITY",
+      "name": "research.HEXOFPREDICTABILITY.title",
+      "icons": [
+        "thaumicconcilium:textures/misc/hex.png"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "parents": [
+        "VISCONDENSER",
+        "~ELDRITCH_EPIPHANY"
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        4,
+        2
+      ],
+      "stages": [
+        {
+          "text": "research.HEXOFPREDICTABILITY.stage.0",
+          "required_knowledge": [
+            "OBSERVATION;ELDRITCH;2",
+            "THEORY;AUROMANCY;2",
+            "THEORY;ELDRITCH;1"
+          ]
+        },
+        {
+          "text": "research.HEXOFPREDICTABILITY.stage.1",
+          "recipes": [
+            "thaumicconcilium:hex_of_predictability"
+          ]
+        }
+      ]
+    }
+  ]
+}
