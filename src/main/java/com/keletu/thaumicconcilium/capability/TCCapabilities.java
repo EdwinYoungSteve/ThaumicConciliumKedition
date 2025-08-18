@@ -6,7 +6,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 
-public class RCCapabilities {
+public class TCCapabilities {
     @CapabilityInject(ICapConcilium.class)
     public static Capability<ICapConcilium> CONCILIUM;
 

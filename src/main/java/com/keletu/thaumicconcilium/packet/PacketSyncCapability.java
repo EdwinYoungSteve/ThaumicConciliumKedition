@@ -1,7 +1,7 @@
 package com.keletu.thaumicconcilium.packet;
 
 import com.keletu.thaumicconcilium.capability.ICapConcilium;
-import com.keletu.thaumicconcilium.capability.RCCapabilities;
+import com.keletu.thaumicconcilium.capability.TCCapabilities;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
@@ -44,7 +44,7 @@ public class PacketSyncCapability implements IMessage {
                     public void run() {
                         EntityPlayer player = Minecraft.getMinecraft().player;
                         if (player != null) {
-                            ICapConcilium capability1 = player.getCapability(RCCapabilities.CONCILIUM, null);
+                            ICapConcilium capability1 = player.getCapability(TCCapabilities.CONCILIUM, null);
                             if (capability1 != null && message.data != null && message.type == 1) {
                                 capability1.deserializeNBT(message.data);
                             }

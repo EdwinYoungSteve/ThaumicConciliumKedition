@@ -3,7 +3,7 @@ package com.keletu.thaumicconcilium;
 import com.keletu.thaumicconcilium.blocks.TCBlocks;
 import com.keletu.thaumicconcilium.capability.CapThaumicConcilium;
 import com.keletu.thaumicconcilium.capability.ICapConcilium;
-import com.keletu.thaumicconcilium.capability.RCCapabilities;
+import com.keletu.thaumicconcilium.capability.TCCapabilities;
 import com.keletu.thaumicconcilium.container.GUIHandler;
 import com.keletu.thaumicconcilium.entity.*;
 import com.keletu.thaumicconcilium.events.KeyHandler;
@@ -86,7 +86,7 @@ public class ThaumicConcilium {
     public void preInit(FMLPreInitializationEvent event) {
         NetworkRegistry.INSTANCE.registerGuiHandler(ThaumicConcilium.MODID, new GUIHandler());
 
-        CapabilityManager.INSTANCE.register(ICapConcilium.class, new RCCapabilities.CapThaumicConcilium(), () -> new CapThaumicConcilium(null));
+        CapabilityManager.INSTANCE.register(ICapConcilium.class, new TCCapabilities.CapThaumicConcilium(), () -> new CapThaumicConcilium(null));
 
         packetInstance = NetworkRegistry.INSTANCE.newSimpleChannel("TCoChannel");
         packetInstance.registerMessage(PacketSyncCapability.Handler.class, PacketSyncCapability.class, 0, Side.CLIENT);

@@ -7,7 +7,7 @@ import com.keletu.thaumicconcilium.blocks.TCBlocks;
 import com.keletu.thaumicconcilium.blocks.TileHexOfPredictability;
 import com.keletu.thaumicconcilium.capability.CapThaumicConcilium;
 import com.keletu.thaumicconcilium.capability.ICapConcilium;
-import com.keletu.thaumicconcilium.capability.RCCapabilities;
+import com.keletu.thaumicconcilium.capability.TCCapabilities;
 import com.keletu.thaumicconcilium.entity.*;
 import com.keletu.thaumicconcilium.items.ItemPontifexRobe;
 import com.keletu.thaumicconcilium.packet.PacketSyncCapability;
@@ -295,7 +295,7 @@ public class EventHandlerEntity {
         EntityPlayer player = (EntityPlayer) event.getEntity();
         if (player.world.isRemote) return;
 
-        ICapConcilium capability1 = player.getCapability(RCCapabilities.CONCILIUM, null);
+        ICapConcilium capability1 = player.getCapability(TCCapabilities.CONCILIUM, null);
         if (capability1 != null) {
             NBTTagCompound data = capability1.serializeNBT();
             player.getEntityData().setTag("ThaumicConcilium", data);
@@ -348,8 +348,8 @@ public class EventHandlerEntity {
 
         if (player.world.isRemote) return;
 
-        ICapConcilium oldCapc = original.getCapability(RCCapabilities.CONCILIUM, null);
-        ICapConcilium newCapc = player.getCapability(RCCapabilities.CONCILIUM, null);
+        ICapConcilium oldCapc = original.getCapability(TCCapabilities.CONCILIUM, null);
+        ICapConcilium newCapc = player.getCapability(TCCapabilities.CONCILIUM, null);
 
         if (oldCapc != null && newCapc != null) {
             if (event.isWasDeath()) {
@@ -477,7 +477,7 @@ public class EventHandlerEntity {
 
     public static void syncToClientConcilium(EntityPlayer player) {
         if (player instanceof EntityPlayerMP) {
-            ICapConcilium capability = player.getCapability(RCCapabilities.CONCILIUM, null);
+            ICapConcilium capability = player.getCapability(TCCapabilities.CONCILIUM, null);
             if (capability != null) {
                 NBTTagCompound data = capability.serializeNBT();
                 ThaumicConcilium.packetInstance.sendTo(new PacketSyncCapability(data, 1), (EntityPlayerMP) player);

@@ -9,7 +9,7 @@ import net.minecraftforge.common.util.INBTSerializable;
 public interface ICapConcilium extends INBTSerializable<NBTTagCompound> {
 
     static ICapConcilium get(EntityPlayer player) {
-        return player.getCapability(RCCapabilities.CONCILIUM, null);
+        return player.getCapability(TCCapabilities.CONCILIUM, null);
     }
 
     void sync();

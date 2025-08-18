@@ -163,23 +163,23 @@ public class CapThaumicConcilium implements ICapConcilium {
 
         @Override
         public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
-            return capability == RCCapabilities.CONCILIUM;
+            return capability == TCCapabilities.CONCILIUM;
         }
 
         @Override
         @SuppressWarnings("unchecked")
         public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
-            return capability == RCCapabilities.CONCILIUM ? (T) this.counter : null;
+            return capability == TCCapabilities.CONCILIUM ? (T) this.counter : null;
         }
 
         @Override
         public NBTTagCompound serializeNBT() {
-            return (NBTTagCompound) RCCapabilities.CONCILIUM.getStorage().writeNBT(RCCapabilities.CONCILIUM, this.counter, null);
+            return (NBTTagCompound) TCCapabilities.CONCILIUM.getStorage().writeNBT(TCCapabilities.CONCILIUM, this.counter, null);
         }
 
         @Override
         public void deserializeNBT(NBTTagCompound nbt) {
-            RCCapabilities.CONCILIUM.getStorage().readNBT(RCCapabilities.CONCILIUM, this.counter, null, nbt);
+            TCCapabilities.CONCILIUM.getStorage().readNBT(TCCapabilities.CONCILIUM, this.counter, null, nbt);
         }
     }
 }
