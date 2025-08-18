@@ -1,6 +1,6 @@
 package com.keletu.thaumicconcilium;
 
-import com.keletu.thaumicconcilium.blocks.RCBlocks;
+import com.keletu.thaumicconcilium.blocks.TCBlocks;
 import com.keletu.thaumicconcilium.capability.CapThaumicConcilium;
 import com.keletu.thaumicconcilium.capability.ICapConcilium;
 import com.keletu.thaumicconcilium.capability.RCCapabilities;
@@ -347,7 +347,7 @@ public class ThaumicConcilium {
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(MODID, "vis_condenser"), new ShapedArcaneRecipe(new ResourceLocation(""),
                 "VISCONDENSER", 200,
                 new AspectList().add(Aspect.ENTROPY, 5).add(Aspect.AIR, 3).add(Aspect.FIRE, 3).add(Aspect.ORDER, 1),
-                RCBlocks.vis_condenser,
+                TCBlocks.vis_condenser,
                 "ISI",
                 "BFB",
                 "BCB",
@@ -373,7 +373,7 @@ public class ThaumicConcilium {
         hood3.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 5));
         ChainedRiftRecipe.addRiftRecipe(new ResourceLocation(MODID, "pontifex_boots"), ChainedRiftRecipe.addChainedRiftRecipe("CRIMSONPONTIFEX", hood3, new ItemStack(ItemsTC.crimsonBoots), new AspectList().add(IsorropiaAPI.FLESH, 100).add(Aspect.EXCHANGE, 200).add(IsorropiaAPI.PRIDE, 200).add(Aspect.PROTECT, 300).add(Aspect.VOID, 100).add(Aspect.LIFE, 100)));
 
-        Part N = new Part(Blocks.BEDROCK, RCBlocks.hex_of_predictability);
+        Part N = new Part(Blocks.BEDROCK, TCBlocks.hex_of_predictability);
         Part O = new Part(BlocksTC.stoneAncient, Blocks.AIR);
         Part[][][] HexOfPredictabilityPlaceHolder = {
                 {

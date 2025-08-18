@@ -3,7 +3,7 @@ package com.keletu.thaumicconcilium.events;
 import com.keletu.thaumicconcilium.ConfigsTCo;
 import com.keletu.thaumicconcilium.ThaumicConcilium;
 import com.keletu.thaumicconcilium.blocks.BlockHexOfPredictability;
-import com.keletu.thaumicconcilium.blocks.RCBlocks;
+import com.keletu.thaumicconcilium.blocks.TCBlocks;
 import com.keletu.thaumicconcilium.blocks.TileHexOfPredictability;
 import com.keletu.thaumicconcilium.capability.CapThaumicConcilium;
 import com.keletu.thaumicconcilium.capability.ICapConcilium;
@@ -130,7 +130,7 @@ public class EventHandlerEntity {
                             world.notifyBlockUpdate(pos.add(xx, 0, zz), world.getBlockState(pos.add(xx, 0, zz)), world.getBlockState(pos.add(xx, 0, zz)), 3);
                             tile.markDirty();
                         }
-                        world.setBlockState(pos.add(xx, 0, zz), RCBlocks.hex_of_predictability.getDefaultState());
+                        world.setBlockState(pos.add(xx, 0, zz), TCBlocks.hex_of_predictability.getDefaultState());
                     }
                 }
                 i.shrink(1);

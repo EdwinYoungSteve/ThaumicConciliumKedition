@@ -2,7 +2,7 @@ package com.keletu.thaumicconcilium.entity;
 
 import com.keletu.thaumicconcilium.ConfigsTCo;
 import com.keletu.thaumicconcilium.ThaumicConcilium;
-import com.keletu.thaumicconcilium.blocks.RCBlocks;
+import com.keletu.thaumicconcilium.blocks.TCBlocks;
 import com.keletu.thaumicconcilium.blocks.TileQuicksilverCrucible;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -109,7 +109,7 @@ public class EntityQuicksilverElemental extends EntityMob {
             world.setBlockToAir(pos);
             world.removeTileEntity(pos);
             TileQuicksilverCrucible crucible = new TileQuicksilverCrucible();
-            world.setBlockState(pos, RCBlocks.quicksilver_crucible.getDefaultState());
+            world.setBlockState(pos, TCBlocks.quicksilver_crucible.getDefaultState());
             world.setTileEntity(pos, crucible);
             TileQuicksilverCrucible placed = (TileQuicksilverCrucible) world.getTileEntity(pos);
             placed.aspects.add(Aspect.EXCHANGE, 20);

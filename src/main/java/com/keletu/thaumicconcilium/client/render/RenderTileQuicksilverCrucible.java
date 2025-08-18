@@ -1,6 +1,6 @@
 package com.keletu.thaumicconcilium.client.render;
 
-import com.keletu.thaumicconcilium.blocks.RCBlocks;
+import com.keletu.thaumicconcilium.blocks.TCBlocks;
 import com.keletu.thaumicconcilium.blocks.TileQuicksilverCrucible;
 import com.verdantartifice.thaumicwonders.common.blocks.BlocksTW;
 import net.minecraft.client.Minecraft;
@@ -33,7 +33,7 @@ public class RenderTileQuicksilverCrucible extends TileEntitySpecialRenderer<Til
             recolor = 1.0f;
         }
         if (cr.aspects.getAmount(Aspect.EXCHANGE) > 0) {
-            UtilsFX.renderQuadFromIcon(icon, 1.0f, 1.0f - recolor / 3.0f, 1.0f - recolor, 1.0f - recolor / 2.0f, RCBlocks.quicksilver_crucible.getPackedLightmapCoords(cr.getWorld().getBlockState(cr.getPos()), cr.getWorld(), cr.getPos()), 771, 1.0f);
+            UtilsFX.renderQuadFromIcon(icon, 1.0f, 1.0f - recolor / 3.0f, 1.0f - recolor, 1.0f - recolor / 2.0f, TCBlocks.quicksilver_crucible.getPackedLightmapCoords(cr.getWorld().getBlockState(cr.getPos()), cr.getWorld(), cr.getPos()), 771, 1.0f);
         }
         GL11.glPopMatrix();
     }

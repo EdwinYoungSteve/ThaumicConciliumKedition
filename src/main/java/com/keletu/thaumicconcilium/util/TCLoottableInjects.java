@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import thecodex6824.thaumicaugmentation.api.TALootTables;
 
 @EventBusSubscriber(modid = ThaumicConcilium.MODID)
-public class RCLoottableInjects {
+public class TCLoottableInjects {
     @SubscribeEvent
     public static void onLootTableLoad(LootTableLoadEvent event) {
         if (event.getName().equals(TALootTables.PEDESTAL_RARE)) {

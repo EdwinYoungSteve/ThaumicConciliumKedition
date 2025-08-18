@@ -1,7 +1,7 @@
 package com.keletu.thaumicconcilium.items;
 
 import com.keletu.thaumicconcilium.ThaumicConcilium;
-import com.keletu.thaumicconcilium.blocks.RCBlocks;
+import com.keletu.thaumicconcilium.blocks.TCBlocks;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
@@ -28,8 +28,8 @@ public class TCItems {
     public static final Item void_slag = new Item().setRegistryName("void_slag").setTranslationKey("void_slag").setCreativeTab(ThaumicConcilium.tabThaumicConcilium);
     public static final Item item_icon = new ItemIcon().setRegistryName("icon").setTranslationKey("icon");
 
-    public static final Item quicksilverCrucible = new RCItemBlocks(RCBlocks.quicksilver_crucible);
-    public static final Item destabilizedCrystal = new ItemBlockDestabilizedCrystal(RCBlocks.destabilized_crystal);
-    public static final Item visCondenser = new ItemBlockDestabilizedCrystal(RCBlocks.vis_condenser);
-    public static final Item hexOfPredictor = new ItemBlockDestabilizedCrystal(RCBlocks.hex_of_predictability);
+    public static final Item quicksilverCrucible = new RCItemBlocks(TCBlocks.quicksilver_crucible);
+    public static final Item destabilizedCrystal = new ItemBlockDestabilizedCrystal(TCBlocks.destabilized_crystal);
+    public static final Item visCondenser = new ItemBlockDestabilizedCrystal(TCBlocks.vis_condenser);
+    public static final Item hexOfPredictor = new ItemBlockDestabilizedCrystal(TCBlocks.hex_of_predictability);
 }

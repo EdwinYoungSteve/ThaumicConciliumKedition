@@ -14,14 +14,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
@@ -32,12 +30,10 @@ import thaumcraft.api.aspects.AspectEventProxy;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.aspects.AspectRegistryEvent;
 import thaumcraft.client.fx.FXDispatcher;
-import thaumcraft.common.golems.EntityThaumcraftGolem;
 import thaumcraft.common.lib.SoundsTC;
 import thaumcraft.common.tiles.crafting.TileInfusionMatrix;
 import thaumcraft.common.tiles.crafting.TilePedestal;
 
-import java.util.Objects;
 import java.util.Random;
 
 @Mod.EventBusSubscriber
@@ -45,10 +41,10 @@ public class RegistryEvents {
 
     @SubscribeEvent
     public static void regBlocks(RegistryEvent.Register<Block> event) {
-        event.getRegistry().registerAll(RCBlocks.quicksilver_crucible);
-        event.getRegistry().registerAll(RCBlocks.destabilized_crystal);
-        event.getRegistry().registerAll(RCBlocks.vis_condenser);
-        event.getRegistry().registerAll(RCBlocks.hex_of_predictability);
+        event.getRegistry().registerAll(TCBlocks.quicksilver_crucible);
+        event.getRegistry().registerAll(TCBlocks.destabilized_crystal);
+        event.getRegistry().registerAll(TCBlocks.vis_condenser);
+        event.getRegistry().registerAll(TCBlocks.hex_of_predictability);
 
         GameRegistry.registerTileEntity(TileQuicksilverCrucible.class, new ResourceLocation(ThaumicConcilium.MODID, "quicksilver_crucible"));
         GameRegistry.registerTileEntity(TileDestabilizedCrystal.class, new ResourceLocation(ThaumicConcilium.MODID, "destabilized_crystal"));

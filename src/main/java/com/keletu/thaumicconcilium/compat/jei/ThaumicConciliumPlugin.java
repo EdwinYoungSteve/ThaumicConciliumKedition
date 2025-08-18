@@ -21,7 +21,7 @@
  */
 package com.keletu.thaumicconcilium.compat.jei;
 
-import com.keletu.thaumicconcilium.blocks.RCBlocks;
+import com.keletu.thaumicconcilium.blocks.TCBlocks;
 import com.keletu.thaumicconcilium.util.ChainedRiftRecipe;
 import mezz.jei.api.IJeiRuntime;
 import mezz.jei.api.IModPlugin;
@@ -57,7 +57,7 @@ public class ThaumicConciliumPlugin implements IModPlugin {
     @Override
     public void register(IModRegistry registry) {
         if (Loader.isModLoaded("thaumicjei")) {
-            registry.addRecipeCatalyst(new ItemStack(RCBlocks.hex_of_predictability), riftCategory.getUid());
+            registry.addRecipeCatalyst(new ItemStack(TCBlocks.hex_of_predictability), riftCategory.getUid());
 
             List<RiftCategory.CrucibleWrapper> crucibleWrappers = new ArrayList<>();
             for (ResourceLocation string : ThaumcraftApi.getCraftingRecipes().keySet()) {

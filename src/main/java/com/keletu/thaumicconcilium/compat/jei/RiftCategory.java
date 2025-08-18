@@ -29,7 +29,7 @@ import com.buuz135.thaumicjei.drawable.ItemStackDrawable;
 import com.buuz135.thaumicjei.ingredient.AspectIngredientRender;
 import com.buuz135.thaumicjei.util.ResearchUtils;
 import com.keletu.thaumicconcilium.ThaumicConcilium;
-import com.keletu.thaumicconcilium.blocks.RCBlocks;
+import com.keletu.thaumicconcilium.blocks.TCBlocks;
 import com.keletu.thaumicconcilium.util.ChainedRiftRecipe;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
@@ -73,7 +73,7 @@ public class RiftCategory implements IRecipeCategory<RiftCategory.CrucibleWrappe
 
     @Override
     public String getTitle() {
-        return new ItemStack(RCBlocks.hex_of_predictability).getDisplayName();
+        return new ItemStack(TCBlocks.hex_of_predictability).getDisplayName();
     }
 
     @Override
@@ -89,7 +89,7 @@ public class RiftCategory implements IRecipeCategory<RiftCategory.CrucibleWrappe
     @Nullable
     @Override
     public IDrawable getIcon() {
-        return new ItemStackDrawable(new ItemStack(RCBlocks.hex_of_predictability));
+        return new ItemStackDrawable(new ItemStack(TCBlocks.hex_of_predictability));
     }
 
     @Override

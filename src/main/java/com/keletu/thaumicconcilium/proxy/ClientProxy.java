@@ -72,9 +72,9 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileVisCondenser.class, new RendererTileVisCondenser());
         ClientRegistry.bindTileEntitySpecialRenderer(TileHexOfPredictability.class, new RendererTileHexOfPredictability());
 
-        ForgeHooksClient.registerTESRItemStack(Item.getItemFromBlock(RCBlocks.destabilized_crystal), 0, TileDestabilizedCrystal.class);
-        ForgeHooksClient.registerTESRItemStack(Item.getItemFromBlock(RCBlocks.vis_condenser), 0, TileVisCondenser.class);
-        ForgeHooksClient.registerTESRItemStack(Item.getItemFromBlock(RCBlocks.hex_of_predictability), 0, TileHexOfPredictability.class);
+        ForgeHooksClient.registerTESRItemStack(Item.getItemFromBlock(TCBlocks.destabilized_crystal), 0, TileDestabilizedCrystal.class);
+        ForgeHooksClient.registerTESRItemStack(Item.getItemFromBlock(TCBlocks.vis_condenser), 0, TileVisCondenser.class);
+        ForgeHooksClient.registerTESRItemStack(Item.getItemFromBlock(TCBlocks.hex_of_predictability), 0, TileHexOfPredictability.class);
     }
 
     public void bloodsplosion(World world, double x, double y, double z) {

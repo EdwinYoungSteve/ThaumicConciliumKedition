@@ -142,7 +142,7 @@ public class TileQuicksilverCrucible extends TileEntity implements IAspectContai
         if (bubble) {
             this.world.playSound(null, entity.getPosition(), SoundsTC.bubble, SoundCategory.BLOCKS, 0.2F, 1.0F + this.world.rand.nextFloat() * 0.4F);
             this.world.notifyBlockUpdate(this.getPos(), world.getBlockState(pos), world.getBlockState(pos), 3);
-            this.world.addBlockEvent(new BlockPos(this.getPos().getX(), this.getPos().getY(), this.getPos().getZ()), RCBlocks.quicksilver_crucible, 2, 1);
+            this.world.addBlockEvent(new BlockPos(this.getPos().getX(), this.getPos().getY(), this.getPos().getZ()), TCBlocks.quicksilver_crucible, 2, 1);
         }
 
         if (stacksize <= 0) {

@@ -186,7 +186,7 @@ public class BlockVisCondenser extends Block implements ITileEntityProvider {
     @Override
     public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
         ArrayList<ItemStack> list = new ArrayList<>();
-        list.add(new ItemStack(RCBlocks.vis_condenser));
+        list.add(new ItemStack(TCBlocks.vis_condenser));
         return list;
     }
 
