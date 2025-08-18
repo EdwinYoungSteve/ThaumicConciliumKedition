@@ -344,7 +344,7 @@ public class ThaumicConcilium {
         PolishRecipe.addPolishmentRecipe(new ItemStack(TCItems.burdening_amulet), new AspectList().add(Aspect.SENSES, 50));
         PolishRecipe.addPolishmentRecipe(new ItemStack(TCItems.tight_belt), new AspectList().add(Aspect.FLIGHT, 100));
 
-        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation("trk", "vis_condenser"), new ShapedArcaneRecipe(new ResourceLocation(""),
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(MODID, "vis_condenser"), new ShapedArcaneRecipe(new ResourceLocation(""),
                 "VISCONDENSER", 200,
                 new AspectList().add(Aspect.ENTROPY, 5).add(Aspect.AIR, 3).add(Aspect.FIRE, 3).add(Aspect.ORDER, 1),
                 RCBlocks.vis_condenser,
@@ -383,7 +383,7 @@ public class ThaumicConcilium {
                 }
         };
 
-        ThaumcraftApi.addMultiblockRecipeToCatalog(new ResourceLocation("trk", "hex_of_predictability"), new ThaumcraftApi.BluePrint("HEXOFPREDICTABILITY", new ItemStack(TCItems.hexOfPredictor), HexOfPredictabilityPlaceHolder, new ItemStack(Item.getItemFromBlock(Blocks.BEDROCK)), new ItemStack(Item.getItemFromBlock(BlocksTC.stoneAncient), 8)));
+        ThaumcraftApi.addMultiblockRecipeToCatalog(new ResourceLocation(MODID, "hex_of_predictability"), new ThaumcraftApi.BluePrint("HEXOFPREDICTABILITY", new ItemStack(TCItems.hexOfPredictor), HexOfPredictabilityPlaceHolder, new ItemStack(Item.getItemFromBlock(Blocks.BEDROCK)), new ItemStack(Item.getItemFromBlock(BlocksTC.stoneAncient), 8)));
 
     }
 }
