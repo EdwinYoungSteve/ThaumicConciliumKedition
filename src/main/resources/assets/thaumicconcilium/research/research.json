@@ -160,7 +160,7 @@
         "thaumicconcilium:textures/research/r_pontifex.png"
       ],
       "parents": [
-        "PRIMORDIAL_WISP",
+        "~BRIGHTESTONE",
         "HEXOFPREDICTABILITY",
         "!CrimsonAnnales"
       ],
@@ -412,7 +412,8 @@
         {
           "text": "research.VISCONDUCTOR.stage.0",
           "recipes": [
-            "thaumicconcilium:vis_conductor"
+            "thaumicconcilium:vis_conductor",
+            "thaumicconcilium:wisp_launcher_upgrade"
           ]
         }
       ]
@@ -584,7 +585,10 @@
           ]
         },
         {
-          "text": "research.DEMATUPGRADE.stage.1"
+          "text": "research.DEMATUPGRADE.stage.1",
+          "recipes": [
+            "thaumicconcilium:rift_closer_upgrade"
+          ]
         }
       ]
     },
@@ -657,6 +661,70 @@
           "text": "research.HEXOFPREDICTABILITY.stage.1",
           "recipes": [
             "thaumicconcilium:hex_of_predictability"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BRIGHTESTONE",
+      "name": "research.BRIGHTESTONE.title",
+      "icons": [
+        "thaumicconcilium:textures/misc/brightest.png"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "parents": [
+        "HEXOFPREDICTABILITY",
+        "!Wisp"
+      ],
+      "location": [
+        5,
+        4
+      ],
+      "stages": [
+        {
+          "text": "research.BRIGHTESTONE.stage.0",
+          "required_research": [
+            "c_defeatbrightest"
+          ]
+        },
+        {
+          "text": "research.BRIGHTESTONE.stage.1"
+        }
+      ]
+    },
+    {
+      "key": "RINGOFBLUSTERINGLIGHT",
+      "name": "research.RINGOFBLUSTERINGLIGHT.title",
+      "icons": [
+        "thaumicconcilium:ring_of_blustering_light"
+      ],
+      "category": "THAUMIC_CONCILIUM",
+      "parents": [
+        "BRIGHTESTONE",
+        "TT_ICHOR"
+      ],
+      "location": [
+        5,
+        6
+      ],
+      "stages": [
+        {
+          "text": "research.RINGOFBLUSTERINGLIGHT.stage.0",
+          "required_knowledge": [
+            "THEORY;BASICS;1",
+            "THEORY;ALCHEMY;1",
+            "THEORY;AUROMANCY;1",
+            "THEORY;ARTIFICE;1",
+            "THEORY;INFUSION;1",
+            "THEORY;GOLEMANCY;1",
+            "THEORY;ELDRITCH;1"
+          ],
+          "warp": 5
+        },
+        {
+          "text": "research.RINGOFBLUSTERINGLIGHT.stage.1",
+          "recipes": [
+            "thaumicconcilium:ring_of_blustering_light"
           ]
         }
       ]

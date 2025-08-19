@@ -45,4 +45,8 @@ public class CommonProxy {
 
     public void smeltFX(final double blockX, final double blockY, final double blockZ, final World w, final int howMany) {
     }
+
+
+    public void shadowSparkle(World world, float x, float y, float z, int size) {
+    }
 }

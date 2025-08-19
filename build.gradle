@@ -104,6 +104,7 @@ dependencies {
     implementation rfg.deobf("curse.maven:reforbidden-magic-709804:6189131")
     implementation rfg.deobf("curse.maven:jei-238222:5101347")
     implementation rfg.deobf("curse.maven:thaumic-jei-285492:5646810")
+    implementation rfg.deobf("curse.maven:thaumic-tinkerer-unofficial-965811:6882269")
 
     compileOnly rfg.deobf("CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.705")
 

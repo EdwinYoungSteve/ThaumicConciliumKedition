@@ -71,7 +71,7 @@ public class ItemResearchPage extends Item {
         ItemStack stack = player.getHeldItem(hand);
         if (!world.isRemote) {
             if (!ThaumcraftCapabilities.knowsResearch(player, "!SpecialCreatures")) {
-                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.rc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.tc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
             } else {
                 switch (stack.getItemDamage()) {
                     case 0:
@@ -81,7 +81,7 @@ public class ItemResearchPage extends Item {
                                 world.playSound(null, player.getPosition(), SoundsTC.learn, SoundCategory.PLAYERS, 0.75F, 1.0F);
                                 stack.shrink(1);
                             } else {
-                                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.rc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+                                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.tc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
                             }
                         }
                         break;
@@ -92,7 +92,7 @@ public class ItemResearchPage extends Item {
                                 world.playSound(null, player.getPosition(), SoundsTC.learn, SoundCategory.PLAYERS, 0.75F, 1.0F);
                                 stack.shrink(1);
                             } else {
-                                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.rc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+                                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.tc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
                             }
                         }
                         break;
@@ -103,7 +103,7 @@ public class ItemResearchPage extends Item {
                                 world.playSound(null, player.getPosition(), SoundsTC.learn, SoundCategory.PLAYERS, 0.75F, 1.0F);
                                 stack.shrink(1);
                             } else {
-                                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.rc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+                                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.tc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
                             }
                         }
                         break;
@@ -114,7 +114,7 @@ public class ItemResearchPage extends Item {
                                 world.playSound(null, player.getPosition(), SoundsTC.learn, SoundCategory.PLAYERS, 0.75F, 1.0F);
                                 stack.shrink(1);
                             } else {
-                                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.rc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+                                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.tc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
                             }
                         }
                         break;
@@ -125,7 +125,7 @@ public class ItemResearchPage extends Item {
                                 world.playSound(null, player.getPosition(), SoundsTC.learn, SoundCategory.PLAYERS, 0.75F, 1.0F);
                                 stack.shrink(1);
                             } else {
-                                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.rc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+                                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.tc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
                             }
                         }
                         break;
@@ -136,7 +136,7 @@ public class ItemResearchPage extends Item {
                                 world.playSound(null, player.getPosition(), SoundsTC.learn, SoundCategory.PLAYERS, 0.75F, 1.0F);
                                 stack.shrink(1);
                             } else {
-                                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.rc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+                                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.tc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
                             }
                         }
                         break;
@@ -147,7 +147,7 @@ public class ItemResearchPage extends Item {
                                 world.playSound(null, player.getPosition(), SoundsTC.learn, SoundCategory.PLAYERS, 0.75F, 1.0F);
                                 stack.shrink(1);
                             } else {
-                                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.rc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+                                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.tc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
                             }
                         }
                         break;
@@ -163,25 +163,25 @@ public class ItemResearchPage extends Item {
         super.addInformation(stack, player, list, par4);
         switch (stack.getItemDamage()) {
             case 0:
-                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.rc_book.5"));
+                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.5"));
                 break;
             case 1:
-                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.rc_book.6"));
+                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.6"));
                 break;
             case 2:
-                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.rc_book.7"));
+                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.7"));
                 break;
             case 3:
-                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.rc_book.8"));
+                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.8"));
                 break;
             case 4:
-                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.rc_book.9"));
+                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.9"));
                 break;
             case 5:
-                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.rc_book.10"));
+                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.10"));
                 break;
             case 6:
-                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.rc_book.11"));
+                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.11"));
                 break;
         }
     }

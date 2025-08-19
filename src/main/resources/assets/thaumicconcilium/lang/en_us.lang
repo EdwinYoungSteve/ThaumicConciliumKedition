@@ -8,18 +8,21 @@ item.icon.name.3=Hex of Predictability
 
 TC.oblivion_response=It seems to you that you have forgotten something about...
 
-tooltip.rc_book.0=The book is filled with faded strange symbols.
-tooltip.rc_book.1=Click to study it.
-tooltip.rc_book.2=The meaning of this book remains unclear to you.
-tooltip.rc_book.3=Why do i do this.
-tooltip.rc_book.4=The meaning of this page remains unclear to you.
-tooltip.rc_book.5=Runic Windings
-tooltip.rc_book.6=Focus Medium: Impulse
-tooltip.rc_book.7=Focus Effect: Positive Burst
-tooltip.rc_book.8=Focus Effect: Reflection
-tooltip.rc_book.9=Bottle of Thick Taint
-tooltip.rc_book.10=Resonator of Vis Conductor
-tooltip.rc_book.11=Destabilized Crystal Cluster
+tooltip.tc_book.0=The book is filled with faded strange symbols.
+tooltip.tc_book.1=Click to study it.
+tooltip.tc_book.2=The meaning of this book remains unclear to you.
+tooltip.tc_book.3=Why do i do this.
+tooltip.tc_book.4=The meaning of this page remains unclear to you.
+tooltip.tc_book.5=Runic Windings
+tooltip.tc_book.6=Focus Medium: Impulse
+tooltip.tc_book.7=Focus Effect: Positive Burst
+tooltip.tc_book.8=Focus Effect: Reflection
+tooltip.tc_book.9=Bottle of Thick Taint
+tooltip.tc_book.10=Resonator of Vis Conductor
+tooltip.tc_book.11=Destabilized Crystal Cluster
+
+tc.tooltip.life.0=You've never held anything more
+tc.tooltip.life.1=pleasant in your hands than this.
 
 thaumicconcilium.IMPULSE.name=Impulse
 thaumicconcilium.IMPULSE.text=Launch a fireworks like beam to your target with random but long range and very fast speed. The beam may bounce between the walls.
@@ -27,19 +30,19 @@ thaumicconcilium.IMPULSE.text=Launch a fireworks like beam to your target with r
 thaumicconcilium.POSITIVEBURST.name=Positive Burst
 thaumicconcilium.POSITIVEBURST.text=Spawns a small bunch of healing orb at target.
 
-rcfocus.positive_burst.count=Count
-rcfocus.positive_burst.function=Function
-rcfocus.positive_burst.common=Heal
-rcfocus.positive_burst.vitaminize=Buff
-rcfocus.positive_burst.fulfillment=Shield
+tcfocus.positive_burst.count=Count
+tcfocus.positive_burst.function=Function
+tcfocus.positive_burst.common=Heal
+tcfocus.positive_burst.vitaminize=Buff
+tcfocus.positive_burst.fulfillment=Shield
 
 thaumicconcilium.REFLECTION.name=Reflection
 thaumicconcilium.REFLECTION.text=Drains target's experience to exchange temporary warps.
 
-rcfocus.reflection.power=Power
-rcfocus.reflection.function=Cost
-rcfocus.reflection.common=Experience
-rcfocus.reflection.oblivion=Research
+tcfocus.reflection.power=Power
+tcfocus.reflection.function=Cost
+tcfocus.reflection.common=Experience
+tcfocus.reflection.oblivion=Research
 
 item.runic_chestplate.name=Runic Body Windings
 item.runic_leggings.name=Runic Legs Windings
@@ -52,6 +55,9 @@ item.tight_belt.name=Tight Belt
 item.burdening_amulet.name=Burdening Amulet
 
 item.void_slag.name=Void Slag
+
+item.primordial_life.name=Primordial Life
+item.ring_of_blustering_light.name=Ring of Blustering Light
 
 item.crimson_annales.name=Crimson Annales
 item.research_notes_crimson.name=Crimson Dogma
@@ -67,16 +73,7 @@ tile.destabilized_crystal.name=Destabilized Crystal Cluster
 tile.vis_condenser.name=Vis Condenser
 tile.hex_of_predictability.name=Hex of Predictability
 
-entity.TaintedRabbit.name=Tainted Rabbit
-entity.TaintedChicken.name=Tainted Chicken
-entity.TaintedCow.name=Tainted Cow
-entity.TaintedPig.name=Tainted Pig
-entity.TaintedVillager.name=Tainted Villager
-entity.TaintedCreeper.name=Tainted Creeper
-entity.TaintedSheep.name=Tainted Sheep
-
 entity.Thaumaturge.name=Thaumaturge
-entity.ThaumicConcilium.Thaumaturge.name=Thaumaturge
 entity.MadThaumaturge.name=Mad Thaumaturge
 entity.VengefulGolem.name=Vengeful Golem
 entity.CrimsonPaladin.name=Crimson Paladin
@@ -92,6 +89,11 @@ entity.ConcentratedWarpChargeEntity.name=Concentrated Warp Charge
 entity.BottleOfThickTaintEntity.name=Thick Taint Bottle
 entity.EntityPositiveBurstOrb.name=Positive Burst Orb
 entity.CompressedBlastEntity.name=Compressed Blast
+entity.EntityHexRift.name=Hex Rift
+entity.BrightestOne.name=Brightest One
+entity.ShardPowderEntity.name=Shard Powder
+entity.ChargedWispEntity.name=Charged Wisp
+entity.EntityLesserPortalBoss.name=Crimson Portal
 
 text.entity.CrimsonPontifex.name=%s %s
 
@@ -107,6 +109,9 @@ tc.golem.taunt.0=A golem chooses; a man obeys!
 tc.golem.taunt.1=Ding-ding!
 tc.golem.taunt.2=I spin you right 'round!
 tc.golem.taunt.3=Now bow down and worship my wandcore!
+
+tc.enchantment.wisplauncher=Wisp Launcher
+tc.enchantment.riftcloser=Dematerialization
 
 research.Thaumaturge.title=Thaumaturges
 research.Thaumaturge.title.text=We live in a society
@@ -218,4 +223,17 @@ research.VISCONDENSER.stage.1=Accumulating, controlling, and releasing titanic a
 research.HEXOFPREDICTABILITY.title=Hex of Predictability
 research.HEXOFPREDICTABILITY.title.text=Interdimensional leash
 research.HEXOFPREDICTABILITY.stage.0=Paradoxically, even what was hitherto an emptiness to you in its most obvious manifestation no longer seems so.<BR>Something must be the source of the aggressive effects generated by these anomalies, maybe you will figure it out later...
-research.HEXOFPREDICTABILITY.stage.1=Paradoxically, even what was hitherto an emptiness to you in its most obvious manifestation no longer seems so.<BR>Something must be the source of the aggressive effects generated by these anomalies, maybe you will figure it out later...<BR>Today you found yourself at the bottom of this world, sprawled on bare stones, scratching runes into them. After recovering from another stroke, you hurried home to put down on paper what you felt. Whether it was a cosmic revelation, or the consequences of asphyxiation from lack of oxygen at such a depth, you do not remember.<PAGE>According to your last assumption, with this construction, it becomes possible toVISCONDENSER more or less control what is on the other side of the rifts. It was too difficult to compete with the mature instances of them, and you couldn't be bothered with rock-cutting under the bombardment of unfriendly magic. However, you managed to conquer a young rift formed by unsealing aura nodes right in the center of the structure.<BR>This rift is no longer dangerous, it's time to make the most of it...
+research.HEXOFPREDICTABILITY.stage.1=Paradoxically, even what was hitherto an emptiness to you in its most obvious manifestation no longer seems so.<BR>Something must be the source of the aggressive effects generated by these anomalies, maybe you will figure it out later...<BR>Today you found yourself at the bottom of this world, sprawled on bare stones, scratching runes into them. After recovering from another stroke, you hurried home to put down on paper what you felt. Whether it was a cosmic revelation, or the consequences of asphyxiation from lack of oxygen at such a depth, you do not remember.<PAGE>According to your last assumption, with this construction, it becomes possible toVISCONDENSER more or less control what is on the other side of the rifts. It was too difficult to compete with the mature instances of them, and you couldn't be bothered with rock-cutting under the bombardment of unfriendly magic. However, you managed to conquer a young rift formed by unsealing flux rift right in the center of the structure.<BR>This rift is no longer dangerous, it's time to make the most of it...
+
+research.c_defeatbrightest.text=Defeat the Brightest
+
+research.BRIGHTESTONE.title=Exploring the Nature of Wisps
+research.BRIGHTESTONE.title.text=Return to sender
+research.BRIGHTESTONE.stage.0=If wisps are of the same nature as aura field, why are they different? You've spent a lot of time studying aura, while a much more interesting subject has been looming in front of you and you haven't paid any attention. Maybe understanding the nature of "living magic" will give a clue to the unsolved problems of thaumaturgy, it's time to try to find out.<BR>After careful planning - you are ready to conduct your first experiment: returning a living wisp to its original vis-reality.<PAGE>You have everything you need ready - a tool to capture and redirect the wisps, as well as a stabilized output in the form of a rift.<BR>The results of the experiment promise to be curious in each of your predicted cases.
+research.BRIGHTESTONE.stage.1=Accumulating, controlling, and releasing titanic amounts of vis with your own hands is dangerous and tedious. To solve this problem, you have been able to adapt the technology of spatial rift dematerialization, for use in ordinary machines.<BR>This vis capacitor is capable of instantly releasing a vis charge in the direction opposite to the side from which the red stone signal came. The strength of the signal is directly proportional to the distance to be discharged, and inversely proportional to the power of that discharge.<PAGE>The energy for operation is supplied to the capacitor through the destabilized crystal cluster located on it. A single use spends 16 parts of stored vis.
+
+research.RINGOFBLUSTERINGLIGHT.title=Ring Of Blustering Light
+research.RINGOFBLUSTERINGLIGHT.title.text=Who said that bells and whistles can't make you omnipotent?
+research.RINGOFBLUSTERINGLIGHT.stage.0=There it is, shining, the perfect receptacle of your power for all to see from afar.<BR>An artifact of astonishing, even for the current moment, power.
+research.RINGOFBLUSTERINGLIGHT.stage.1=There it is, shining, the perfect receptacle of your power for all to see from afar.<BR>An artifact of astonishing, even for the current moment, power.<BR>Combining all the light you have seen in your life and the material manifestations of the lower world, you have created this, the key to the very act of changing the reality around you. It is unlikely that you will ever think of removing it.<BR>Aside from this little thing, the ring is capable of energizing your wands and giving excellent rune protection.
+

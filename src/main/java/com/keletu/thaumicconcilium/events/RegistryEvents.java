@@ -70,6 +70,8 @@ public class RegistryEvents {
         event.getRegistry().registerAll(TCItems.tight_belt);
         event.getRegistry().registerAll(TCItems.burdening_amulet);
         event.getRegistry().registerAll(TCItems.void_slag);
+        event.getRegistry().registerAll(TCItems.primordial_life);
+        event.getRegistry().registerAll(TCItems.blustering_ring);
 
         event.getRegistry().registerAll(TCItems.item_icon);
 

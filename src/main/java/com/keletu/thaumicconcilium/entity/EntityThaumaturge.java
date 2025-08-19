@@ -107,15 +107,6 @@ public class EntityThaumaturge extends EntityMob implements IRangedAttackMob {
     }
 
     @Override
-    public String getName() {
-        if (this.hasCustomName()) {
-            return this.getCustomNameTag();
-        } else {
-            return I18n.translateToLocal("entity.ThaumicConcilium.Thaumaturge.name");
-        }
-    }
-
-    @Override
     public boolean canPickUpLoot() {
         return false;
     }

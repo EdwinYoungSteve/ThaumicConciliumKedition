@@ -81,8 +81,8 @@ public class FocusReflection extends FocusEffect {
     @Override
     public NodeSetting[] createSettings() {
         int[] function = new int[]{0, 1};
-        String[] functionkDesc = new String[]{"rcfocus.reflection.common", "rcfocus.reflection.oblivion"};
-        return new NodeSetting[]{new NodeSetting("power", "rcfocus.reflection.power", new NodeSetting.NodeSettingIntRange(1, 3)), new NodeSetting("function", "rcfocus.reflection.function", new NodeSetting.NodeSettingIntList(function, functionkDesc))};
+        String[] functionkDesc = new String[]{"tcfocus.reflection.common", "tcfocus.reflection.oblivion"};
+        return new NodeSetting[]{new NodeSetting("power", "tcfocus.reflection.power", new NodeSetting.NodeSettingIntRange(1, 3)), new NodeSetting("function", "tcfocus.reflection.function", new NodeSetting.NodeSettingIntList(function, functionkDesc))};
     }
 
     @Override

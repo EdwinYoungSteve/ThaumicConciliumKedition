@@ -54,10 +54,14 @@ public class ModelEvents {
         defaultModel(TCItems.research_page, 5);
         defaultModel(TCItems.research_page, 6);
         defaultModel(TCItems.vis_conductor);
+        defaultModel(TCItems.vis_conductor, 1);
+        defaultModel(TCItems.vis_conductor, 2);
         defaultModel(TCItems.dump_jackboots);
         defaultModel(TCItems.tight_belt);
         defaultModel(TCItems.burdening_amulet);
         defaultModel(TCItems.void_slag);
+        defaultModel(TCItems.primordial_life);
+        defaultModel(TCItems.blustering_ring);
 
         defaultModel(TCItems.item_icon);
         defaultModel(TCItems.item_icon, 1);

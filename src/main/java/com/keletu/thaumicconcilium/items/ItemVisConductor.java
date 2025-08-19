@@ -3,7 +3,11 @@ package com.keletu.thaumicconcilium.items;
 import com.keletu.thaumicconcilium.ThaumicConcilium;
 import com.keletu.thaumicconcilium.blocks.TileDestabilizedCrystal;
 import com.keletu.thaumicconcilium.client.particle.FXColoredLightning;
+import com.keletu.thaumicconcilium.entity.EntityChargedWisp;
+import com.keletu.thaumicconcilium.entity.EntityThaumGib;
 import com.keletu.thaumicconcilium.packet.PacketFXLightning;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,23 +20,33 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.capabilities.ThaumcraftCapabilities;
+import thaumcraft.codechicken.lib.vec.Vector3;
 import thaumcraft.common.entities.EntityFluxRift;
+import thaumcraft.common.entities.monster.EntityWisp;
 import thaumcraft.common.lib.SoundsTC;
 import thaumcraft.common.lib.utils.BlockUtils;
 import thaumcraft.common.lib.utils.EntityUtils;
 
+import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 public class ItemVisConductor extends Item {
     private static final Random rand = new Random(System.currentTimeMillis());
     long soundDelay = 0L;
+    public static HashMap<String, Entity> hold = new HashMap<>();
 
     public ItemVisConductor() {
         this.maxStackSize = 1;
+        this.hasSubtypes = true;
     }
 
     @Override
@@ -57,59 +71,101 @@ public class ItemVisConductor extends Item {
         }
     }
 
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        if (stack.getItemDamage() == 1) {
+            tooltip.add(TextFormatting.GOLD + I18n.format("tc.enchantment.wisplauncher"));
+        } else if (stack.getItemDamage() == 2) {
+            tooltip.add(TextFormatting.GOLD + I18n.format("tc.enchantment.riftcloser"));
+        }
+    }
+
     @Override
     public void onUsingTick(ItemStack stack, EntityLivingBase p, int time) {
-        NBTTagCompound fociTag = stack.getTagCompound();
-        if (fociTag == null)
-            fociTag = new NBTTagCompound();
 
-        RayTraceResult pos = BlockUtils.getTargetBlock(p.world, p, false);
-        if (fociTag.hasKey("blockX")) {
-            int x = fociTag.getInteger("blockX");
-            int y = fociTag.getInteger("blockY");
-            int z = fociTag.getInteger("blockZ");
-            BlockPos position = new BlockPos(x, y, z);
-            if (p.getDistanceSq(x, y, z) <= 64.0) {
+        if (stack.getItemDamage() != 1) {
+            NBTTagCompound fociTag = stack.getTagCompound();
+            if (fociTag == null)
+                fociTag = new NBTTagCompound();
 
-                TileDestabilizedCrystal crystal = (TileDestabilizedCrystal) p.world.getTileEntity(position);
-                if (crystal != null) {
-                    if (!crystal.aspect.equalsIgnoreCase(fociTag.getString("aspect"))) p.stopActiveHand();
-                    if (!p.world.isRemote && this.soundDelay < System.currentTimeMillis()) {
-                        p.world.playSound(null, p.getPosition(), SoundsTC.jacobs, SoundCategory.PLAYERS, 0.5F, 1.0F + (rand.nextFloat() - rand.nextFloat()) * 0.2F);
-                        this.soundDelay = System.currentTimeMillis() + 500L;
-                    }
-                    int potency = 3;
-                    if (time % 3 == 0) {
-                        if (!p.world.isRemote) {
-                            crystal.capacity = MathHelper.clamp(crystal.capacity - (1 + potency), 0, Integer.MAX_VALUE);
-                            p.world.notifyBlockUpdate(position, p.world.getBlockState(position), p.world.getBlockState(position), 3);
-                            crystal.markDirty();
+            RayTraceResult pos = BlockUtils.getTargetBlock(p.world, p, false);
+
+            if (fociTag.hasKey("blockX")) {
+                int x = fociTag.getInteger("blockX");
+                int y = fociTag.getInteger("blockY");
+                int z = fociTag.getInteger("blockZ");
+                BlockPos position = new BlockPos(x, y, z);
+                if (p.getDistanceSq(x, y, z) <= 64.0) {
+
+                    TileDestabilizedCrystal crystal = (TileDestabilizedCrystal) p.world.getTileEntity(position);
+                    if (crystal != null) {
+                        if (!crystal.aspect.equalsIgnoreCase(fociTag.getString("aspect"))) p.stopActiveHand();
+                        if (!p.world.isRemote && this.soundDelay < System.currentTimeMillis()) {
+                            p.world.playSound(null, p.getPosition(), SoundsTC.jacobs, SoundCategory.PLAYERS, 0.5F, 1.0F + (rand.nextFloat() - rand.nextFloat()) * 0.2F);
+                            this.soundDelay = System.currentTimeMillis() + 500L;
+                        }
+                        int potency = 3;
+                        if (time % 3 == 0) {
+                            if (!p.world.isRemote) {
+                                crystal.capacity = MathHelper.clamp(crystal.capacity - (1 + potency), 0, Integer.MAX_VALUE);
+                                p.world.notifyBlockUpdate(position, p.world.getBlockState(position), p.world.getBlockState(position), 3);
+                                crystal.markDirty();
+                            }
+                        }
+                        if (p.world.isRemote) {
+                            int rgb = Aspect.aspects.get(crystal.aspect).getColor();
+                            shootLightning(p.world, p, (float) x + 0.5f + (-0.5f + rand.nextFloat()), (float) y + 0.5f + (-0.5f + rand.nextFloat()), z + 0.5f + (-0.5f + rand.nextFloat()), rgb);
                         }
                     }
-                    if (p.world.isRemote) {
-                        int rgb = Aspect.aspects.get(crystal.aspect).getColor();
-                        shootLightning(p.world, p, (float) x + 0.5f + (-0.5f + rand.nextFloat()), (float) y + 0.5f + (-0.5f + rand.nextFloat()), z + 0.5f + (-0.5f + rand.nextFloat()), rgb);
+                } else {
+                    p.stopActiveHand();
+                }
+            } else if (pos != null) {
+                if (p.world.getTileEntity(pos.getBlockPos()) instanceof TileDestabilizedCrystal) {
+                    TileDestabilizedCrystal crystal = (TileDestabilizedCrystal) p.world.getTileEntity(pos.getBlockPos());
+                    if (crystal.aspect != null && crystal.capacity > 0) {
+                        p.world.notifyBlockUpdate(pos.getBlockPos(), p.world.getBlockState(pos.getBlockPos()), p.world.getBlockState(pos.getBlockPos()), 3);
+                        crystal.markDirty();
+                        fociTag.setInteger("blockX", pos.getBlockPos().getX());
+                        fociTag.setInteger("blockY", pos.getBlockPos().getY());
+                        fociTag.setInteger("blockZ", pos.getBlockPos().getZ());
+                        fociTag.setInteger("amount", crystal.capacity);
+                        fociTag.setString("aspect", crystal.aspect);
+                        stack.setTagCompound(fociTag);
                     }
                 }
-            } else {
-                p.stopActiveHand();
             }
-        } else if (pos != null) {
-            if (p.world.getTileEntity(pos.getBlockPos()) instanceof TileDestabilizedCrystal) {
-                TileDestabilizedCrystal crystal = (TileDestabilizedCrystal) p.world.getTileEntity(pos.getBlockPos());
-                if (crystal.aspect != null && crystal.capacity > 0) {
-                    p.world.notifyBlockUpdate(pos.getBlockPos(), p.world.getBlockState(pos.getBlockPos()), p.world.getBlockState(pos.getBlockPos()), 3);
-                    crystal.markDirty();
-                    fociTag.setInteger("blockX", pos.getBlockPos().getX());
-                    fociTag.setInteger("blockY", pos.getBlockPos().getY());
-                    fociTag.setInteger("blockZ", pos.getBlockPos().getZ());
-                    fociTag.setInteger("amount", crystal.capacity);
-                    fociTag.setString("aspect", crystal.aspect);
-                    stack.setTagCompound(fociTag);
+        } else {
+            Entity pointedEntity = EntityUtils.getPointedEntity(p.world, p, 0.0F, 32.0D, 2.0f, false);
+            if (pointedEntity instanceof EntityWisp) {
+                if (!p.world.isRemote && this.soundDelay < System.currentTimeMillis()) {
+                    p.world.playSound(null, p.getPosition(), SoundsTC.jacobs, SoundCategory.PLAYERS, 0.5F, 1.0F + (rand.nextFloat() - rand.nextFloat()) * 0.2F);
+                    this.soundDelay = System.currentTimeMillis() + 500L;
+                }
+                final String pp = "R" + p.getDisplayName();
+                Vec3d look = p.getLookVec();
+                double tx = p.posX + look.x * 1.5D;
+                double ty = p.posY + look.y * 1.5D + 1.0D;
+                double tz = p.posZ + look.z * 1.5D;
+                if (!p.world.isRemote) {
+                    EntityThaumGib.setEntityMotionFromVector(pointedEntity, new Vector3(tx, ty, tz), 1.0f);
+                    NBTTagCompound fociTag = stack.getTagCompound();
+                    if (fociTag == null)
+                        fociTag = new NBTTagCompound();
+
+                    if (hold.get(pp) == null || pointedEntity.getEntityId() != hold.get(pp).getEntityId()) {
+                        hold.put(pp, pointedEntity);
+                        fociTag.setBoolean("hold", true);
+                        stack.setTagCompound(fociTag);
+                    }
+                }
+                if (p.world.isRemote) {
+                    int rgb = Aspect.getAspect(((EntityWisp) pointedEntity).getType()).getColor();
+                    shootLightning(p.world, p, (float) pointedEntity.posX + 0.5f + (-0.5f + rand.nextFloat()), (float) pointedEntity.posY + 0.5f + (-0.5f + rand.nextFloat()), pointedEntity.posZ + 0.5f + (-0.5f + rand.nextFloat()), rgb);
                 }
             }
-        }
 
+        }
     }
 
     @Override
@@ -122,7 +178,20 @@ public class ItemVisConductor extends Item {
         if (fociTag == null)
             fociTag = new NBTTagCompound();
 
-        if (fociTag.hasKey("blockX")) {
+        if (fociTag.hasKey("hold")) {
+            final String pp = "R" + player.getDisplayName();
+            if (!world.isRemote) {
+                Entity e = hold.get(pp);
+                if (e.getDistanceSq(player) < 6.0f) {
+                    EntityChargedWisp wisp = new EntityChargedWisp(world, e.posX, e.posY, e.posZ, player, wandstack);
+                    wisp.setType(((EntityWisp) e).getType());
+                    e.setDead();
+                    world.spawnEntity(wisp);
+                }
+                hold.remove(pp);
+                fociTag.removeTag("hold");
+            }
+        } else if (fociTag.hasKey("blockX")) {
             int blockX = fociTag.getInteger("blockX");
             int blockY = fociTag.getInteger("blockY");
             int blockZ = fociTag.getInteger("blockZ");
@@ -141,7 +210,7 @@ public class ItemVisConductor extends Item {
                         player.world.createExplosion(null, blockX, blockY, blockZ, 2.0F, var2);
                     }
                 } else {
-                    if (ThaumcraftCapabilities.knowsResearch(player, "DEMATUPGRADE")) {
+                    if (ThaumcraftCapabilities.knowsResearch(player, "DEMATUPGRADE") && wandstack.getItemDamage() == 2) {
                         int amount = fociTag.getInteger("amount");
                         int rgb = Aspect.aspects.get(fociTag.getString("aspect")).getColor();
                         if (look instanceof EntityLivingBase) {

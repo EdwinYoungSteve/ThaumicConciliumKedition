@@ -60,8 +60,8 @@ public class FocusPositiveBurst extends FocusEffect {
 
     public NodeSetting[] createSettings() {
         int[] function = new int[]{0, 1, 2};
-        String[] functionkDesc = new String[]{"rcfocus.positive_burst.common", "rcfocus.positive_burst.vitaminize", "rcfocus.positive_burst.fulfillment"};
-        return new NodeSetting[]{new NodeSetting("count", "rcfocus.positive_burst.count", new NodeSetting.NodeSettingIntRange(5, 10)), new NodeSetting("function", "rcfocus.positive_burst.function", new NodeSetting.NodeSettingIntList(function, functionkDesc))};
+        String[] functionkDesc = new String[]{"tcfocus.positive_burst.common", "tcfocus.positive_burst.vitaminize", "tcfocus.positive_burst.fulfillment"};
+        return new NodeSetting[]{new NodeSetting("count", "tcfocus.positive_burst.count", new NodeSetting.NodeSettingIntRange(5, 10)), new NodeSetting("function", "tcfocus.positive_burst.function", new NodeSetting.NodeSettingIntList(function, functionkDesc))};
     }
 
     public void onCast(Entity caster) {

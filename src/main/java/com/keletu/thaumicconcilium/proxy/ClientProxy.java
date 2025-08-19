@@ -4,6 +4,7 @@ import com.keletu.thaumicconcilium.ThaumicConcilium;
 import com.keletu.thaumicconcilium.blocks.*;
 import com.keletu.thaumicconcilium.client.model.ModelGolemBydlo;
 import com.keletu.thaumicconcilium.client.model.ModelVengefulGolem;
+import com.keletu.thaumicconcilium.client.particle.FXSparkle;
 import com.keletu.thaumicconcilium.client.particle.ParticleFlamePublic;
 import com.keletu.thaumicconcilium.client.render.*;
 import com.keletu.thaumicconcilium.entity.*;
@@ -27,8 +28,6 @@ import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.client.fx.ParticleEngine;
 import thaumcraft.client.fx.other.FXEssentiaStream;
@@ -38,7 +37,6 @@ import thaumcraft.client.renderers.entity.projectile.RenderNoProjectile;
 import java.util.List;
 import java.util.Random;
 
-@SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
 
     @Override
@@ -66,6 +64,10 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityBottleOfThickTaint.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), TCItems.bottle_of_thick_taint, Minecraft.getMinecraft().getRenderItem()));
         RenderingRegistry.registerEntityRenderingHandler(EntityPositiveBurstOrb.class, new RendererPositiveBurstOrb());
         RenderingRegistry.registerEntityRenderingHandler(EntityCompressedBlast.class, new RenderNoProjectile(Minecraft.getMinecraft().getRenderManager()));
+        RenderingRegistry.registerEntityRenderingHandler(EntityBrightestOne.class, new RendererBrightestOne());
+        RenderingRegistry.registerEntityRenderingHandler(EntityShardPowder.class, new RendererShardPowderEntity());
+        RenderingRegistry.registerEntityRenderingHandler(EntityChargedWisp.class, new RendererChargedWisp());
+        RenderingRegistry.registerEntityRenderingHandler(EntityPontifexPortal.class, new RenderCultistPortalLesserPontifex(Minecraft.getMinecraft().getRenderManager()));
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileQuicksilverCrucible.class, new RenderTileQuicksilverCrucible());
         ClientRegistry.bindTileEntitySpecialRenderer(TileDestabilizedCrystal.class, new RendererTileDestabilizedCrystal());
@@ -189,6 +191,39 @@ public class ClientProxy extends CommonProxy {
                     }
                 }
             }
+        }
+    }
+
+    @Override
+    public void shadowSparkle(World world, float x, float y, float z, int size) {
+        ParticleShadowBeam fx = new ParticleShadowBeam(
+                world,
+                x,
+                y,
+                z,
+                size,
+                0.001f,
+                0.001f,
+                0.001f,
+                5);
+        ParticleEngine.addEffect(world, fx);
+    }
+
+    public static class ParticleShadowBeam extends FXSparkle {
+
+        public ParticleShadowBeam(World world, double x, double y, double z, float scale, float red, float green, float blue, int maxAge) {
+            super(world, x, y, z, scale, red, green, blue, 1);
+            this.particleMaxAge /= 3;
+            this.particleMaxAge = maxAge;
+            this.shrink = false;
+            this.blendmode = 0;
+            this.multiplier = 1;
+            this.particle = 1;
+            this.slowdown = false;
+            this.canCollide = true;
+            this.setGravity(-0.7f);
+            //////////////////////////////////////////////////
+            // For more check the parent class
         }
     }
 }

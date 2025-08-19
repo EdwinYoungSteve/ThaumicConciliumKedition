@@ -15,10 +15,9 @@ import thaumcraft.api.items.ItemsTC;
 import thaumcraft.common.entities.ai.combat.AILongRangeAttack;
 import thaumcraft.common.entities.monster.cult.EntityCultist;
 import thaumcraft.common.entities.projectile.EntityGolemOrb;
-import thecodex6824.thaumicaugmentation.api.TAItems;
 
 public class EntityCrimsonPaladin extends EntityCultist implements IRangedAttackMob {
-    public static ItemStack staff = new ItemStack(TAItems.GAUNTLET, 1, 0);
+    public static ItemStack staff = new ItemStack(ItemsTC.casterBasic, 1, 0);
 
     public EntityCrimsonPaladin(World w) {
         super(w);

@@ -126,6 +126,11 @@ public class ThaumicConcilium {
         EntityRegistry.registerModEntity(new ResourceLocation(MODID + ":" + "positive_burst_orb"), EntityPositiveBurstOrb.class, "EntityPositiveBurstOrb", id++, MODID, 64, 1, true);
         EntityRegistry.registerModEntity(new ResourceLocation(MODID + ":" + "compressed_blast"), EntityCompressedBlast.class, "CompressedBlastEntity", id++, MODID, 64, 1, true);
         EntityRegistry.registerModEntity(new ResourceLocation(MODID + ":" + "hex_rift"), EntityHexRift.class, "EntityHexRift", id++, MODID, 64, 1, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(MODID + ":" + "shard_powder"), EntityShardPowder.class, "ShardPowderEntity", id++, MODID, 64, 1, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(MODID + ":" + "shadow_beam"), EntityShadowbeam.class, "Shadowbeam", id++, MODID, 64, 1, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(MODID + ":" + "brightest_one"), EntityBrightestOne.class, "BrightestOne", id++, MODID, 64, 1, true, 0x00FFFF, 0x111111);
+        EntityRegistry.registerModEntity(new ResourceLocation(MODID + ":" + "charged_wisp"), EntityChargedWisp.class, "ChargedWispEntity", id++, ThaumicConcilium.MODID, 64, 1, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(MODID + ":" + "pontifex_protal"), EntityPontifexPortal.class, "EntityLesserPortalBoss", id++, ThaumicConcilium.MODID, 64, 1, true);
 
         ThaumcraftApi.registerEntityTag(ThaumicConcilium.MODID + ".MadThaumaturge", new AspectList().add(Aspect.MAN, 4).add(Aspect.MIND, 4).add(Aspect.ELDRITCH, 8));
         ThaumcraftApi.registerEntityTag(ThaumicConcilium.MODID + ".CrimsonPaladin", new AspectList().add(Aspect.MAN, 4).add(Aspect.LIFE, 4).add(Aspect.ELDRITCH, 4).add(Aspect.MAGIC, 4));
@@ -137,6 +142,7 @@ public class ThaumicConcilium {
         ThaumcraftApi.registerEntityTag(ThaumicConcilium.MODID + ".VengefulGolem", new AspectList().add(Aspect.MAN, 4).add(Aspect.CRAFT, 4).add(IsorropiaAPI.PRIDE, 4).add(Aspect.MOTION, 4));
         ThaumcraftApi.registerEntityTag(ThaumicConcilium.MODID + ".Dissolved", new AspectList().add(Aspect.MAN, 4).add(Aspect.VOID, 4).add(Aspect.ELDRITCH, 4).add(Aspect.ALCHEMY, 4));
         ThaumcraftApi.registerEntityTag(ThaumicConcilium.MODID + ".StrayedMirror", new AspectList().add(Aspect.MAN, 4).add(Aspect.EXCHANGE, 4)/*.add(Aspect.SPATIO, 4)*/.add(Aspect.MOTION, 4));
+        ThaumcraftApi.registerEntityTag(ThaumicConcilium.MODID + ".BrightestOne", new AspectList().add(Aspect.AURA, 16).add(Aspect.LIFE, 16).add(Aspect.MAGIC, 16));
 
         FocusEngine.registerElement(FocusPositiveBurst.class, new ResourceLocation(MODID, "textures/foci_icons/positive_burst.png"), 10854849);
         FocusEngine.registerElement(FocusMediumImpulse.class, new ResourceLocation(MODID, "textures/foci_icons/impulse.png"), 0xFF3333);
@@ -254,6 +260,16 @@ public class ThaumicConcilium {
                 new ItemStack(ItemsTC.bottleTaint),
                 new AspectList().add(Aspect.FLUX, 50).add(Aspect.ALCHEMY, 50).add(Aspect.CRYSTAL, 50)));
 
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(MODID, "wisp_launcher_upgrade"), new ShapelessArcaneRecipe(new ResourceLocation(""), "!VisConductor", 100,
+                new AspectList().add(Aspect.AIR, 10).add(Aspect.ORDER, 5).add(Aspect.ENTROPY, 3).add(Aspect.FIRE, 3),
+                new ItemStack(TCItems.vis_conductor, 1, 1),
+                new Object[]{new ItemStack(TCItems.vis_conductor, 1, 0), new ItemStack(ItemsTC.nuggets, 1, 10)}));
+
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(MODID, "rift_closer_upgrade"), new ShapelessArcaneRecipe(new ResourceLocation(""), "DEMATUPGRADE", 200,
+                new AspectList().add(Aspect.AIR, 3).add(Aspect.FIRE, 3).add(Aspect.EARTH, 3).add(Aspect.WATER, 3).add(Aspect.ENTROPY, 3).add(Aspect.ORDER, 3),
+                new ItemStack(TCItems.vis_conductor, 1, 2),
+                new Object[]{new ItemStack(TCItems.vis_conductor, 1, 0), new ItemStack(ItemsTC.causalityCollapser)}));
+
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(MODID, "vis_conductor"), new InfusionRecipe("!VisConductor",
                 new ItemStack(TCItems.vis_conductor), 20,
                 new AspectList().add(Aspect.EXCHANGE, 100).add(Aspect.ENERGY, 100).add(Aspect.MAGIC, 200).add(Aspect.MAN, 300).add(Aspect.TOOL, 50),
@@ -317,6 +333,33 @@ public class ThaumicConcilium {
                 new ItemStack(ModItems.ResourceNS, 1, 1),
                 new ItemStack(ModItems.ResourceNS, 1, 1)));
 
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(MODID, "ring_of_blustering_light"), new InfusionRecipe("RINGOFBLUSTERINGLIGHT",
+                new ItemStack(TCItems.blustering_ring), 25,
+                new AspectList().add(Aspect.ENERGY, 1500).add(Aspect.LIGHT, 1500).add(Aspect.MAGIC, 1000).add(Aspect.ORDER, 300).add(IsorropiaAPI.PRIDE, 300).add(Aspect.PROTECT, 200).add(Aspect.EXCHANGE, 200),
+                new ItemStack(ItemsTC.baubles, 1, 5),
+                Ingredient.fromItem(ItemsTC.primordialPearl),
+                ThaumcraftApiHelper.makeCrystal(IsorropiaAPI.PRIDE),
+                new ItemStack(com.nekokittygames.thaumictinkerer.common.items.ModItems.kamiresource, 1, 2),
+                new ItemStack(com.nekokittygames.thaumictinkerer.common.items.ModItems.energetic_nitor, 1),
+                new ItemStack(com.nekokittygames.thaumictinkerer.common.items.ModItems.energetic_nitor, 1),
+                new ItemStack(com.nekokittygames.thaumictinkerer.common.items.ModItems.energetic_nitor, 1),
+                "blockDiamond",
+                "blockDiamond",
+                "blockDiamond",
+                new ItemStack(com.nekokittygames.thaumictinkerer.common.items.ModItems.kamiresource, 1, 2),
+                ThaumcraftApiHelper.makeCrystal(IsorropiaAPI.PRIDE),
+                TCItems.primordial_life,
+                ThaumcraftApiHelper.makeCrystal(IsorropiaAPI.PRIDE),
+                new ItemStack(com.nekokittygames.thaumictinkerer.common.items.ModItems.kamiresource, 1, 2),
+                new ItemStack(com.nekokittygames.thaumictinkerer.common.items.ModItems.gas_light_item),
+                new ItemStack(com.nekokittygames.thaumictinkerer.common.items.ModItems.gas_light_item),
+                new ItemStack(com.nekokittygames.thaumictinkerer.common.items.ModItems.gas_light_item),
+                new ItemStack(ModItems.ResourceNS, 1, 0),
+                new ItemStack(ModItems.ResourceNS, 1, 2),
+                new ItemStack(ModItems.ResourceNS, 1, 5),
+                new ItemStack(com.nekokittygames.thaumictinkerer.common.items.ModItems.kamiresource, 1, 2),
+                ThaumcraftApiHelper.makeCrystal(IsorropiaAPI.PRIDE)));
+
         IsorropiaAPI.registerCreatureInfusionRecipe(new ResourceLocation("thaumicconcilium", "golem_bydlo"),
                 ((SpecieCurativeInfusionRecipe.Builder) new SpecieCurativeInfusionRecipe.Builder()
                         .withAspects(new AspectList().add(Aspect.METAL, 100).add(Aspect.ENTROPY, 100).add(Aspect.ENERGY, 50).add(IsorropiaAPI.PRIDE, 50))
@@ -343,6 +386,7 @@ public class ThaumicConcilium {
         PolishRecipe.addPolishmentRecipe(new ItemStack(TCItems.dump_jackboots), new AspectList().add(Aspect.MOTION, 100));
         PolishRecipe.addPolishmentRecipe(new ItemStack(TCItems.burdening_amulet), new AspectList().add(Aspect.SENSES, 50));
         PolishRecipe.addPolishmentRecipe(new ItemStack(TCItems.tight_belt), new AspectList().add(Aspect.FLIGHT, 100));
+        PolishRecipe.addPolishmentRecipe(new ItemStack(TCItems.blustering_ring), new AspectList().add(Aspect.DARKNESS, 1000));
 
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(MODID, "vis_condenser"), new ShapedArcaneRecipe(new ResourceLocation(""),
                 "VISCONDENSER", 200,

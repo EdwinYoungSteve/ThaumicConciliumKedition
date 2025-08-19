@@ -17,18 +17,18 @@ item.void_slag.name=虚空熔渣
 
 TC.oblivion_response=你似乎忘掉了什么...
 
-tooltip.rc_book.0=这本书画满了褪色的奇怪符号.
-tooltip.rc_book.1=右击以进行研究.
-tooltip.rc_book.2=这本书的含义对你来说仍然模糊.
-tooltip.rc_book.3=我为什么要这样做
-tooltip.rc_book.4=你还不足以理解这些研究.
-tooltip.rc_book.5=符文缠绕
-tooltip.rc_book.6=核心媒介：冲击
-tooltip.rc_book.7=核心效果：疗愈迸发
-tooltip.rc_book.8=核心效果：反思
-tooltip.rc_book.9=稠腐瓶
-tooltip.rc_book.10=导魔谐振器
-tooltip.rc_book.11=不稳定晶簇
+tooltip.tc_book.0=这本书画满了褪色的奇怪符号.
+tooltip.tc_book.1=右击以进行研究.
+tooltip.tc_book.2=这本书的含义对你来说仍然模糊.
+tooltip.tc_book.3=我为什么要这样做
+tooltip.tc_book.4=你还不足以理解这些研究.
+tooltip.tc_book.5=符文缠绕
+tooltip.tc_book.6=核心媒介：冲击
+tooltip.tc_book.7=核心效果：疗愈迸发
+tooltip.tc_book.8=核心效果：反思
+tooltip.tc_book.9=稠腐瓶
+tooltip.tc_book.10=导魔谐振器
+tooltip.tc_book.11=不稳定晶簇
 
 thaumicconcilium.IMPULSE.name=冲击
 thaumicconcilium.IMPULSE.text=向你的目标快速射出一道烟花般长距离射线，射线有可能在墙面之间弹射.
@@ -36,29 +36,21 @@ thaumicconcilium.IMPULSE.text=向你的目标快速射出一道烟花般长距�
 thaumicconcilium.POSITIVEBURST.name=疗愈迸发
 thaumicconcilium.POSITIVEBURST.text=在目标处散播疗愈法球.
 
-rcfocus.positive_burst.count=数量
-rcfocus.positive_burst.function=功能
-rcfocus.positive_burst.common=治疗
-rcfocus.positive_burst.vitaminize=增强
-rcfocus.positive_burst.fulfillment=护盾
+tcfocus.positive_burst.count=数量
+tcfocus.positive_burst.function=功能
+tcfocus.positive_burst.common=治疗
+tcfocus.positive_burst.vitaminize=增强
+tcfocus.positive_burst.fulfillment=护盾
 
 thaumicconcilium.REFLECTION.name=反思
 thaumicconcilium.REFLECTION.text=用目标的经验换取临时扭曲.
 
-rcfocus.reflection.power=效力
-rcfocus.reflection.function=消耗
-rcfocus.reflection.common=经验
-rcfocus.reflection.oblivion=研究进度
+tcfocus.reflection.power=效力
+tcfocus.reflection.function=消耗
+tcfocus.reflection.common=经验
+tcfocus.reflection.oblivion=研究进度
 
-entity.TaintedRabbit.name=腐化兔子
-entity.TaintedChicken.name=腐化鸡
-entity.TaintedCow.name=腐化牛
-entity.TaintedPig.name=腐化猪
-entity.TaintedVillager.name=腐化村民
-entity.TaintedCreeper.name=腐化爬行者
-entity.TaintedSheep.name=腐化羊
-
-entity.ThaumicConcilium.Thaumaturge.name=神秘使
+entity.Thaumaturge.name=神秘使
 entity.MadThaumaturge.name=疯狂神秘使
 entity.VengefulGolem.name=复仇傀儡
 entity.CrimsonPaladin.name=血腥圣骑士
@@ -73,6 +65,11 @@ entity.ConcentratedWarpChargeEntity.name=浓缩腐化飞弹
 entity.BottleOfThickTaintEntity.name=稠腐瓶
 entity.EntityPositiveBurstOrb.name=疗愈迸发法球
 entity.CompressedBlastEntity.name=凝集飞弹
+entity.EntityHexRift.name=六方裂隙
+entity.BrightestOne.name=至耀
+entity.ShardPowderEntity.name=碎片粉末
+entity.ChargedWispEntity.name=充能精灵
+entity.EntityLesserPortalBoss.name=血腥传送门
 
 text.entity.CrimsonPontifex.name=%s %s
 
@@ -179,4 +176,14 @@ research.VISCONDENSER.stage.1=亲手聚集,操控还有释放巨量魔力是既�
 research.HEXOFPREDICTABILITY.title=预见之六方
 research.HEXOFPREDICTABILITY.title.text=跨次元牵引
 research.HEXOFPREDICTABILITY.stage.0=矛盾的是,即使是迄今为止对你来说最明显的空虚也不过如此.<BR>这些异常所产生的攻击性效果一定是由某些东西造成的,也许你稍后会查明这个问题......
-research.HEXOFPREDICTABILITY.stage.1=矛盾的是,即使是迄今为止对你来说最明显的空虚也不过如此.<BR>这些异常所产生的攻击性效果一定是由某些东西造成的,也许你稍后会查明这个问题......<BR>今天你发觉自己处于这个世界的底部,躺在光秃秃的石头上,在上面刻着符文.从另一次昏迷中恢复过来后,你赶紧回了家,把你的感受写在纸上.无论这是宇宙的启示还是在如此深度缺氧窒息的后果,你都不再记得了.<PAGE>根据你最后的假设,有了这样一种结构,就可以或多或少地控制裂隙另一边的情况.与已经成型的裂隙抗衡太困难了,而且你也不想在不友善魔力的轰击下切割岩石.然而,你成功地征服了一条因缸中节点在结构中心解封而产生的新生裂隙.<BR>这条裂隙已经不再危险,是时候好好利用它了......
+research.HEXOFPREDICTABILITY.stage.1=矛盾的是,即使是迄今为止对你来说最明显的空虚也不过如此.<BR>这些异常所产生的攻击性效果一定是由某些东西造成的,也许你稍后会查明这个问题......<BR>今天你发觉自己处于这个世界的底部,躺在光秃秃的石头上,在上面刻着符文.从另一次昏迷中恢复过来后,你赶紧回了家,把你的感受写在纸上.无论这是宇宙的启示还是在如此深度缺氧窒息的后果,你都不再记得了.<PAGE>根据你最后的假设,有了这样一种结构,就可以或多或少地控制裂隙另一边的情况.与已经成型的裂隙抗衡太困难了,而且你也不想在不友善魔力的轰击下切割岩石.然而,你成功地征服了一条因缸中裂隙在结构中心解封而产生的新生裂隙.<BR>这条裂隙已经不再危险,是时候好好利用它了......
+
+research.BRIGHTESTONE.title=探寻精灵之本质
+research.BRIGHTESTONE.title.text=退回原址
+research.BRIGHTESTONE.stage.0=如果小精灵的性质与灵气场相同,那为什么它们又有所不同?你花了很多时间研究灵气,而一个更有趣的课题摆在你面前,你却没有注意到.也许了解"活体魔法"的本质会为未解的魔法问题提供线索,是时候尝试找出答案了.<BR>经过严谨的计划 - 你已准备好进行第一个实验:将活生生的小精灵还原到其原始的魔力实在.<PAGE>你已经准备好了所需的一切 - 一个用于捕获和重定向小精灵的工具,以及一个以裂缝形式稳定的输出.<BR>实验结果保证在你预测的每种情况下都会很有趣.
+research.BRIGHTESTONE.stage.1=将这个东西握在手里有一种撩人的愉悦感.<BR>这种感觉对你来说是新鲜的,所以首先你试图把它扔掉,认为它在奴役你,但站立了几秒后你发觉事实恰恰相反.<BR>现在你的思绪比以前任何时候都要清晰,而你实现它们的意志也变得不可动摇.这种力量可以让你改变世界,还有毫无疑问的,改变你自己.
+
+research.RINGOFBLUSTERINGLIGHT.title=怒耀指环
+research.RINGOFBLUSTERINGLIGHT.title.text=谁说花里胡哨的东西不能让你无所不能?
+research.RINGOFBLUSTERINGLIGHT.stage.0=它,闪闪发光,是你力量的完美容器,让所有人在远处就为之侧目.<BR>一件具有惊人力量的神器,即使到了现在也是如此.
+research.RINGOFBLUSTERINGLIGHT.stage.1=它,闪闪发光,是你力量的完美容器,让所有人在远处就为之侧目.<BR>一件具有惊人力量的神器,即使到了现在也是如此.<BR>结合了你这辈子见过的所有光芒以及下层世界的物质表现形式,你创造出了此物,它是改变你周围现实的关键.你可能永远都不会想着去摘下它了.<BR>除了这个小事之外,这枚戒指还能够为你的法杖充能,并提供出色的符文防护.

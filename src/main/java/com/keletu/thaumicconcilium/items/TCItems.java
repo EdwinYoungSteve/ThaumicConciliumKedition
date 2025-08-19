@@ -26,9 +26,11 @@ public class TCItems {
     public static final Item tight_belt = new ItemTightBelt().setRegistryName("tight_belt").setTranslationKey("tight_belt").setCreativeTab(ThaumicConcilium.tabThaumicConcilium);
     public static final Item burdening_amulet = new ItemBurdeningAmulet().setRegistryName("burdening_amulet").setTranslationKey("burdening_amulet").setCreativeTab(ThaumicConcilium.tabThaumicConcilium);
     public static final Item void_slag = new Item().setRegistryName("void_slag").setTranslationKey("void_slag").setCreativeTab(ThaumicConcilium.tabThaumicConcilium);
+    public static final Item primordial_life = new ItemPrimordialLife().setRegistryName("primordial_life").setTranslationKey("primordial_life").setCreativeTab(ThaumicConcilium.tabThaumicConcilium);
+    public static final Item blustering_ring = new RingOfBlusteringLight().setRegistryName("ring_of_blustering_light").setTranslationKey("ring_of_blustering_light").setCreativeTab(ThaumicConcilium.tabThaumicConcilium);
     public static final Item item_icon = new ItemIcon().setRegistryName("icon").setTranslationKey("icon");
 
-    public static final Item quicksilverCrucible = new RCItemBlocks(TCBlocks.quicksilver_crucible);
+    public static final Item quicksilverCrucible = new TCItemBlocks(TCBlocks.quicksilver_crucible);
     public static final Item destabilizedCrystal = new ItemBlockDestabilizedCrystal(TCBlocks.destabilized_crystal);
     public static final Item visCondenser = new ItemBlockDestabilizedCrystal(TCBlocks.vis_condenser);
     public static final Item hexOfPredictor = new ItemBlockDestabilizedCrystal(TCBlocks.hex_of_predictability);

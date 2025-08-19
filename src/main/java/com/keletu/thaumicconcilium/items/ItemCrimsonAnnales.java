@@ -39,7 +39,7 @@ public class ItemCrimsonAnnales extends Item implements IWarpingGear {
                     world.playSound(null, player.getPosition(), SoundsTC.learn, SoundCategory.PLAYERS, 0.75F, 1.0F);
                     stack.shrink(1);
                 } else {
-                    player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.rc_book.2")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+                    player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.tc_book.2")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
                 }
             }
         }
@@ -51,8 +51,8 @@ public class ItemCrimsonAnnales extends Item implements IWarpingGear {
     public void addInformation(ItemStack stack, World player, List<String> list, ITooltipFlag par4) {
         super.addInformation(stack, player, list, par4);
         if (stack.getItem() == TCItems.crimson_annales) {
-            list.add(TextFormatting.DARK_PURPLE + I18n.translateToLocal("tooltip.rc_book.0"));
-            list.add(TextFormatting.DARK_BLUE + I18n.translateToLocal("tooltip.rc_book.1"));
+            list.add(TextFormatting.DARK_PURPLE + I18n.translateToLocal("tooltip.tc_book.0"));
+            list.add(TextFormatting.DARK_BLUE + I18n.translateToLocal("tooltip.tc_book.1"));
         }
     }
 

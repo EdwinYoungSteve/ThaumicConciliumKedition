@@ -172,15 +172,14 @@ public class EntityHexRift extends EntityFluxRift implements IEntityAdditionalSp
                         if (item.getItem().getItem().equals(ItemsTC.curio) && item.getItem().getItemDamage() == 6) {
                             if (item.getThrower() != null && ThaumcraftCapabilities.knowsResearch(world.getPlayerEntityByName(item.getThrower()), "CRIMSONPONTIFEX@0")) {
                                 this.world.createExplosion(null, this.posX, this.posY, this.posZ, 3.0F, false);
-                                EntityCrimsonPontifex pontifex = new EntityCrimsonPontifex(this.world);
-                                pontifex.setPositionAndRotation(this.posX, this.posY + (double) (this.height / 2.0F), this.posZ, (float) (this.world.rand.nextInt(360) - 180), 0.0F);
-                                pontifex.rotationYawHead = pontifex.rotationYaw;
-                                pontifex.renderYawOffset = pontifex.rotationYaw;
-                                pontifex.onInitialSpawn(this.world.getDifficultyForLocation(this.getPosition()), null);
-                                this.world.spawnEntity(pontifex);
+                                EntityPontifexPortal portal = new EntityPontifexPortal(this.world);
+                                portal.setPositionAndRotation(this.posX, this.posY, this.posZ, (float) (this.world.rand.nextInt(360) - 180), 0.0F);
+                                portal.rotationYawHead = portal.rotationYaw;
+                                portal.renderYawOffset = portal.rotationYaw;
+                                this.world.spawnEntity(portal);
+                                item.setDead();
+                                this.setDead();
                             }
-                            item.setDead();
-                            this.setDead();
                         }
                     }
 
@@ -191,6 +190,26 @@ public class EntityHexRift extends EntityFluxRift implements IEntityAdditionalSp
                             Aspect[] aspects = ((TileHexOfPredictability) tile).essentia.getAspects();
                             int rgb = aspects[world.rand.nextInt(aspects.length)].getColor();
                             ThaumicConcilium.packetInstance.sendToAllAround(new PacketFXLightning((float) v1.x, (float) v1.y, (float) v1.z, (float) i.posX, (float) i.posY, (float) i.posZ, rgb, (((TileHexOfPredictability) tile).heat / 2400F) * 2), new NetworkRegistry.TargetPoint(world.provider.getDimension(), posX, posY, posZ, 32.0));
+                        }
+                    }
+                }
+
+                List<Entity> el = EntityUtils.getEntitiesInRange(this.world, v1.x, v1.y, v1.z, this, Entity.class, 0.5);
+                for (Entity e : el) {
+                    if (!e.isDead) {
+                        if (!world.isRemote && e instanceof EntityChargedWisp && ((EntityChargedWisp) e).caster != null) {
+                            if (ThaumcraftCapabilities.knowsResearch(((EntityChargedWisp) e).caster, "BRIGHTESTONE@0")) {
+                                this.world.createExplosion(null, this.posX, this.posY, this.posZ, 3.0F, false);
+                                EntityBrightestOne brightestOne = new EntityBrightestOne(this.world);
+                                brightestOne.setPositionAndRotation(this.posX, this.posY + (double) (this.height / 2.0F), this.posZ, (float) (this.world.rand.nextInt(360) - 180), 0.0F);
+                                brightestOne.rotationYawHead = brightestOne.rotationYaw;
+                                brightestOne.renderYawOffset = brightestOne.rotationYaw;
+                                brightestOne.onInitialSpawn(this.world.getDifficultyForLocation(this.getPosition()), null);
+                                this.world.spawnEntity(brightestOne);
+
+                                e.setDead();
+                                this.setDead();
+                            }
                         }
                     }
                 }
