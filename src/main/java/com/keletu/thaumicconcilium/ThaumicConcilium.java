@@ -70,7 +70,7 @@ import java.util.List;
 public class ThaumicConcilium {
     public static final String MODID = "thaumicconcilium";
     public static final String NAME = "Thaumic Concilium Kedition";
-    public static final String VERSION = "1.0.0";
+    public static final String VERSION = "1.1.0";
     public static final String MC_VERSION = "[1.12.2]";
     @SidedProxy(clientSide = "com.keletu.thaumicconcilium.proxy.ClientProxy", serverSide = "com.keletu.thaumicconcilium.proxy.CommonProxy")
     public static CommonProxy proxy;
