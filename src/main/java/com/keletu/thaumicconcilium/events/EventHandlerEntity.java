@@ -102,7 +102,7 @@ public class EventHandlerEntity {
         if (event.getEntityLiving() instanceof EntityPlayer) {
             ICapConcilium capabilities = ICapConcilium.get((EntityPlayer) event.getEntityLiving());
             if (capabilities != null) {
-                if (capabilities.getChainedTime() != 0) event.setCanceled(true);
+                if (capabilities.getChainedTime() != 0 && event.isCancelable()) event.setCanceled(true);
             }
         }
     }
@@ -111,7 +111,7 @@ public class EventHandlerEntity {
     public static void onAttackDisable(AttackEntityEvent event) {
         ICapConcilium capabilities = ICapConcilium.get(event.getEntityPlayer());
         if (capabilities != null) {
-            if (capabilities.getChainedTime() != 0) event.setCanceled(true);
+            if (capabilities.getChainedTime() != 0 && event.isCancelable()) event.setCanceled(true);
         }
     }
 
