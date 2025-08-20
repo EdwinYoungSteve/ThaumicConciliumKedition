@@ -66,7 +66,7 @@ import java.util.Iterator;
 import java.util.List;
 
 @Mod(modid = ThaumicConcilium.MODID, name = ThaumicConcilium.NAME, version = ThaumicConcilium.VERSION, acceptedMinecraftVersions = ThaumicConcilium.MC_VERSION,
-        dependencies = "required-after:baubles@[1.5.2, ); required-after:thaumcraft@[6.1.BETA26]; required-after:thaumicaugmentation; required-after:thaumicwonders; required-after:isorropia;")
+        dependencies = "required-after:baubles@[1.5.2, ); required-after:thaumcraft@[6.1.BETA26]; required-after:thaumicaugmentation; required-after:thaumicwonders; required-after:isorropia; required-after:thaumictinkerer;")
 public class ThaumicConcilium {
     public static final String MODID = "thaumicconcilium";
     public static final String NAME = "Thaumic Concilium Kedition";
