@@ -55,12 +55,13 @@ import thecodex6824.thaumicaugmentation.common.tile.TileRiftJar;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Mod.EventBusSubscriber(modid = ThaumicConcilium.MODID)
 public class EventHandlerEntity {
 
-    public static final HashMap<EntityPlayer, Boolean> etherealsClient = new HashMap<>();
-    public static final HashMap<EntityPlayer, Boolean> etherealsServer = new HashMap<>();
+    public static final ConcurrentHashMap<EntityPlayer, Boolean> etherealsClient = new ConcurrentHashMap<>();
+    public static final ConcurrentHashMap<EntityPlayer, Boolean> etherealsServer = new ConcurrentHashMap<>();
 
     @SubscribeEvent
     public static void playerUpdateEvent(LivingEvent.LivingUpdateEvent event) {
@@ -68,9 +69,10 @@ public class EventHandlerEntity {
             EntityPlayer player = (EntityPlayer) event.getEntityLiving();
             ICapConcilium capabilities = ICapConcilium.get(player);
 
-            HashMap<EntityPlayer, Boolean> ethereals = !player.world.isRemote ? etherealsServer : etherealsClient;
+            ConcurrentHashMap<EntityPlayer, Boolean> ethereals = !player.world.isRemote ? etherealsServer : etherealsClient;
 
-            if (capabilities.isEthereal()) {
+            boolean isEthereal = capabilities.isEthereal();
+            if (isEthereal) {
                 player.noClip = true;
                 if (!player.isSneaking() || (!player.isSneaking() && !player.capabilities.allowFlying)) {
                     player.motionY = 0;
@@ -78,7 +80,7 @@ public class EventHandlerEntity {
             } else if (ethereals.getOrDefault(player, false)) {
                 player.noClip = false;
             }
-            ethereals.put(player, capabilities.isEthereal());
+            ethereals.put(player, isEthereal);
         }
     }
 
