@@ -92,6 +92,8 @@ public class RegistryEvents {
         proxy.registerComplexObjectTag(new ItemStack(TCItems.research_page, 1, 2), new AspectList().add(Aspect.MIND, 30));
         proxy.registerComplexObjectTag(new ItemStack(TCItems.research_page, 1, 3), new AspectList().add(Aspect.MIND, 30));
         proxy.registerComplexObjectTag(new ItemStack(TCItems.research_page, 1, 4), new AspectList().add(Aspect.MIND, 30));
+        proxy.registerComplexObjectTag(new ItemStack(TCItems.research_page, 1, 5), new AspectList().add(Aspect.MIND, 30));
+        proxy.registerComplexObjectTag(new ItemStack(TCItems.research_page, 1, 6), new AspectList().add(Aspect.MIND, 30));
 
     }
 
