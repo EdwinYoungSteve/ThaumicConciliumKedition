@@ -83,6 +83,29 @@ public class ChainedRiftRecipe implements IThaumcraftRecipe {
         }
     }
 
+    public static ChainedRiftRecipe findMatchingRiftRecipeNonPlayer(AspectList aspects, ItemStack lastDrop) {
+        int highest = 0;
+        int index = -1;
+
+        for (int a = 0; a < riftRecipes.size(); ++a) {
+            ChainedRiftRecipe recipe = riftRecipes.get(a);
+            ItemStack temp = lastDrop.copy();
+            temp.setCount(1);
+            if (recipe.key.isEmpty() && recipe.matches(aspects, temp)) {
+                int result = recipe.aspects.size();
+                if (result > highest) {
+                    highest = result;
+                    index = a;
+                }
+            }
+        }
+        if (index < 0) {
+            return null;
+        } else {
+            new AspectList();
+            return riftRecipes.get(index);
+        }
+    }
 
     public boolean matches(AspectList itags, ItemStack cat) {
         if (catalyst instanceof ItemStack &&

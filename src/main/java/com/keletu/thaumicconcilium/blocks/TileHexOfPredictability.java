@@ -82,7 +82,8 @@ public class TileHexOfPredictability extends TileThaumcraft implements IAspectCo
                     if (heat >= 2400) {
                         List<EntityHexRift> rifts = world.getEntitiesWithinAABB(EntityHexRift.class, new AxisAlignedBB(pos.getX() - 1.0, pos.getY(), pos.getZ() - 1.0, pos.getX() + 1.0, pos.getY() + 4.0, pos.getZ() + 1.0));
                         if (!rifts.isEmpty()) {
-                            rifts.get(0).setCollapse(true);
+                            this.world.createExplosion(null, this.pos.getX(), this.pos.getY(), this.pos.getZ(), 3.0F, false);
+                            rifts.get(0).setDead();
                             hasRift = false;
                             heat = 0;
                             essentia.aspects.clear();
@@ -119,28 +120,26 @@ public class TileHexOfPredictability extends TileThaumcraft implements IAspectCo
                                 this.world.notifyBlockUpdate(this.pos, world.getBlockState(pos), world.getBlockState(pos), 3);
                             } else {
                                 String thrower = item.getThrower();
-                                if (thrower != null) {
-                                    ChainedRiftRecipe recipe = ChainedRiftRecipe.findMatchingRiftRecipe(world.getPlayerEntityByName(thrower), essentia, item.getItem());
-                                    if (recipe != null) {
-                                        item.setDead();
-                                        ItemStack resultStack = recipe.getRecipeOutput().copy();
-                                        EntityItem result = new EntityItem(this.world, item.posX, item.posY, item.posZ, resultStack);
-                                        this.world.spawnEntity(result);
+                                ChainedRiftRecipe recipe = thrower != null ? ChainedRiftRecipe.findMatchingRiftRecipe(world.getPlayerEntityByName(thrower), essentia, item.getItem()) : ChainedRiftRecipe.findMatchingRiftRecipeNonPlayer(essentia, item.getItem());
+                                if (recipe != null) {
+                                    item.setDead();
+                                    ItemStack resultStack = recipe.getRecipeOutput().copy();
+                                    EntityItem result = new EntityItem(this.world, item.posX, item.posY + 0.5F, item.posZ, resultStack);
+                                    this.world.spawnEntity(result);
 
-                                        EntityPlayer p = this.world.getPlayerEntityByName(thrower);
-                                        if (p != null) {
-                                            FMLCommonHandler.instance().firePlayerCraftingEvent(p, resultStack, new InventoryFake(item.getItem()));
-                                        }
-
-                                        //for (int a = 0; a < Thaumcraft.proxy.particleCount(10); ++a) {
-                                        //    ThaumicConcilium.proxy.sparkles(this.world, (int) result.posX, (int) (result.posY), (int) result.posZ);
-                                        //}
-                                        EntityThaumGib.setEntityMotionFromVector(result, new Vector3(result.posX + (-0.5 + world.rand.nextDouble()) * 5.0, result.posY + 1.0, result.posZ + (-0.5 + world.rand.nextDouble()) * 5.0), 0.4F);
-                                        essentia.aspects.clear();
-                                        this.markDirty();
-                                        this.world.notifyBlockUpdate(this.pos, world.getBlockState(pos), world.getBlockState(pos), 3);
-
+                                    EntityPlayer p = this.world.getPlayerEntityByName(thrower);
+                                    if (p != null) {
+                                        FMLCommonHandler.instance().firePlayerCraftingEvent(p, resultStack, new InventoryFake(item.getItem()));
                                     }
+
+                                    //for (int a = 0; a < Thaumcraft.proxy.particleCount(10); ++a) {
+                                    //    ThaumicConcilium.proxy.sparkles(this.world, (int) result.posX, (int) (result.posY), (int) result.posZ);
+                                    //}
+                                    EntityThaumGib.setEntityMotionFromVector(result, new Vector3(result.posX + (-0.5 + world.rand.nextDouble()) * 5.0, result.posY + 1.0, result.posZ + (-0.5 + world.rand.nextDouble()) * 5.0), 0.4F);
+                                    essentia.aspects.clear();
+                                    this.markDirty();
+                                    this.world.notifyBlockUpdate(this.pos, world.getBlockState(pos), world.getBlockState(pos), 3);
+
                                 }
 
                             }
