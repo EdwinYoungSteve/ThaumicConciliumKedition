@@ -127,9 +127,11 @@ public class TileHexOfPredictability extends TileThaumcraft implements IAspectCo
                                     EntityItem result = new EntityItem(this.world, item.posX, item.posY + 0.5F, item.posZ, resultStack);
                                     this.world.spawnEntity(result);
 
-                                    EntityPlayer p = this.world.getPlayerEntityByName(thrower);
-                                    if (p != null) {
-                                        FMLCommonHandler.instance().firePlayerCraftingEvent(p, resultStack, new InventoryFake(item.getItem()));
+                                    if(thrower != null) {
+                                        EntityPlayer p = this.world.getPlayerEntityByName(thrower);
+                                        if (p != null) {
+                                            FMLCommonHandler.instance().firePlayerCraftingEvent(p, resultStack, new InventoryFake(item.getItem()));
+                                        }
                                     }
 
                                     //for (int a = 0; a < Thaumcraft.proxy.particleCount(10); ++a) {
