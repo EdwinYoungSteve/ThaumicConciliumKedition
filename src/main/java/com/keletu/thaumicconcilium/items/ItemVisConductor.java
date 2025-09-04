@@ -82,7 +82,6 @@ public class ItemVisConductor extends Item {
 
     @Override
     public void onUsingTick(ItemStack stack, EntityLivingBase p, int time) {
-
         if (stack.getItemDamage() != 1) {
             NBTTagCompound fociTag = stack.getTagCompound();
             if (fociTag == null)
@@ -160,11 +159,16 @@ public class ItemVisConductor extends Item {
                     }
                 }
                 if (p.world.isRemote) {
-                    int rgb = Aspect.getAspect(((EntityWisp) pointedEntity).getType()).getColor();
-                    shootLightning(p.world, p, (float) pointedEntity.posX + 0.5f + (-0.5f + rand.nextFloat()), (float) pointedEntity.posY + 0.5f + (-0.5f + rand.nextFloat()), pointedEntity.posZ + 0.5f + (-0.5f + rand.nextFloat()), rgb);
+                    String wispType = ((EntityWisp) pointedEntity).getType();
+                    if (wispType != null) {
+                        Aspect wispAspect = Aspect.getAspect(wispType);
+                        if (wispAspect != null) {
+                            int rgb = wispAspect.getColor();
+                            shootLightning(p.world, p, (float) pointedEntity.posX + 0.5f + (-0.5f + rand.nextFloat()), (float) pointedEntity.posY + 0.5f + (-0.5f + rand.nextFloat()), pointedEntity.posZ + 0.5f + (-0.5f + rand.nextFloat()), rgb);
+                        }
+                    }
                 }
             }
-
         }
     }
 
