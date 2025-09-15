@@ -41,9 +41,11 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import thaumcraft.api.capabilities.IPlayerKnowledge;
 import thaumcraft.api.capabilities.ThaumcraftCapabilities;
 import thaumcraft.api.casters.ICaster;
 import thaumcraft.api.items.ItemsTC;
+import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.common.entities.monster.EntityBrainyZombie;
 import thaumcraft.common.entities.monster.EntityGiantBrainyZombie;
 import thaumcraft.common.entities.monster.cult.EntityCultist;
@@ -53,7 +55,6 @@ import thecodex6824.thaumicaugmentation.api.tile.CapabilityRiftJar;
 import thecodex6824.thaumicaugmentation.api.tile.IRiftJar;
 import thecodex6824.thaumicaugmentation.common.tile.TileRiftJar;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -267,10 +268,10 @@ public class EventHandlerEntity {
             if (ItemPontifexRobe.isFullSet(event.getEntityPlayer())) {
                 List<EntityCultist> list = event.getEntityPlayer().world.getEntitiesWithinAABB(EntityCultist.class, event.getEntityPlayer().getEntityBoundingBox().expand(32, 32, 32).expand(-32, -32, -32));
                 if (!list.isEmpty()) {
-                    //int life = Thaumcraft.proxy.playerKnowledge.getAspectPoolFor(event.entityPlayer.getCommandSenderName(), Aspect.HUNGER);
-                    //int heal = Thaumcraft.proxy.playerKnowledge.getAspectPoolFor(event.entityPlayer.getCommandSenderName(), Aspect.HEAL);
-                    int potency = MathHelper.clamp(1, 1, 200);
-                    int regen = MathHelper.clamp(1, 1, 200);
+                    int life = ThaumcraftCapabilities.getKnowledge(event.getEntityPlayer()).getKnowledge(IPlayerKnowledge.EnumKnowledgeType.THEORY, ResearchCategories.researchCategories.get("ELDRITCH"));
+                    int heal = ThaumcraftCapabilities.getKnowledge(event.getEntityPlayer()).getKnowledge(IPlayerKnowledge.EnumKnowledgeType.THEORY, ResearchCategories.researchCategories.get("AUROMANCY"));
+                    int potency = MathHelper.clamp((life / 6), 1, 200);
+                    int regen = MathHelper.clamp((heal / 6), 1, 200);
                     for (EntityCultist cultist : list) {
                         if (event.getTarget() instanceof EntityLivingBase && cultist.isNonBoss() && !(event.getTarget() instanceof EntityCultist)) {
                             cultist.setAttackTarget((EntityLivingBase) event.getTarget());

@@ -32,10 +32,6 @@ public class TileVisCondenser extends TileThaumcraft implements ITickable {
         cooldown = 0;
     }
 
-    public boolean canUpdate() {
-        return true;
-    }
-
     public void update() {
         if (cooldown > 0) {
             --cooldown;
