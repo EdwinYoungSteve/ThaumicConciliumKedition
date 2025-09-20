@@ -20,6 +20,8 @@ tooltip.tc_book.8=Focus Effect: Reflection
 tooltip.tc_book.9=Bottle of Thick Taint
 tooltip.tc_book.10=Resonator of Vis Conductor
 tooltip.tc_book.11=Destabilized Crystal Cluster
+tooltip.tc_book.12=Pontifex Hammer
+tooltip.tc_book.13=Crimson Initiation
 
 tc.tooltip.life.0=You've never held anything more
 tc.tooltip.life.1=pleasant in your hands than this.
@@ -60,13 +62,13 @@ item.primordial_life.name=Primordial Life
 item.ring_of_blustering_light.name=Ring of Blustering Light
 
 item.crimson_annales.name=Crimson Annales
-item.research_notes_crimson.name=Crimson Dogma
 
 item.pontifex_hood.name=Pontifex Cape
 item.pontifex_robe.name=Pontifex Robes
 item.pontifex_legs.name=Pontifex Leggings
 item.pontifex_boots.name=Pontifex Boots
 item.molot.name=Pontifex's Hammer
+item.crimson_dagger.name=Crimson Dagger
 
 tile.quicksilver_crucible.name=Quicksilver Reactor
 tile.destabilized_crystal.name=Destabilized Crystal Cluster
@@ -152,11 +154,11 @@ research.CRIMSONPONTIFEX.title.text=Family Reunion
 research.CRIMSONPONTIFEX.stage.1=With a track record of successfully summoning a living creature from the other side of the rift, you think you know where the Pontifex of the Crimson Cult has disappeared to...<BR>Of course, deliberately bringing someone clearly hostile out of oblivion is not the best idea, but you still need empirical data for your theory.<BR>Rifts are known to resonate with items, so you need something connected to the missing person. A copy of Crimson Rites would be a good fit.
 research.CRIMSONPONTIFEX.stage.2=Years spent in a phantom state have affected not only the Pontifex, but also his vestments. You know it will not be very difficult to replicate it.<BR>Wearing the full set allows you to forfeit your material wholeness at any time, at the cost of restricting your active freedom.<BR>Press H to toggle this ability.<BR>Despite the passage of time, fear of the Pontifex's mental power still permeates every member of the Cult. Wearing the full uniform, you feel confident in your ability to command the Crimson Warriors.<PAGE>Your subordinates are empowered as they fight under a Pontifex skilled in the healing arts and insatiable for blood.
 
-research.f_crimsonnotes.text=Defeat the Pontifex
+research.f_crimsonpontifex.text=Defeat the Pontifex
 
 research.CRIMSONINITIATION.title=Crimson Initiation
 research.CRIMSONINITIATION.title.text=Sign here
-research.CRIMSONINITIATION.stage.1=Wearing the Pontifex's robe, you feel his mind control abilities filling you. Though you are not a member of the Cult, it seems the others don't think so, and are waiting for replenishment in the dwindling ranks.<BR>You are quite capable of doing so. Wearing the full vestments of the Pontifex, touch with your Crimson Dogma one of the failed to handle the thaumaturgical knowledge, to give him a new chance at life.
+research.CRIMSONINITIATION.stage.1=Wearing the Pontifex's robe, you feel his mind control abilities filling you. Though you are not a member of the Cult, it seems the others don't think so, and are waiting for replenishment in the dwindling ranks.<BR>You are quite capable of doing so. Wearing the full vestments of the Pontifex, touch with your Crimson Dagger one of the failed to handle the thaumaturgical knowledge, to give him a new chance at life.
 
 research.PONTIFEXHAMMER.title=Pontifex's Hammer
 research.PONTIFEXHAMMER.title.text=A truly bloody weapon

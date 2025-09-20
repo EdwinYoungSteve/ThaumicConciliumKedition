@@ -29,6 +29,8 @@ tooltip.tc_book.8=核心效果：反思
 tooltip.tc_book.9=稠腐瓶
 tooltip.tc_book.10=导魔谐振器
 tooltip.tc_book.11=不稳定晶簇
+tooltip.tc_book.12=教皇战锤
+tooltip.tc_book.13=血腥启蒙
 
 thaumicconcilium.IMPULSE.name=冲击
 thaumicconcilium.IMPULSE.text=向你的目标快速射出一道烟花般长距离射线，射线有可能在墙面之间弹射.
@@ -110,11 +112,11 @@ research.CRIMSONPONTIFEX.title.text=家人重聚
 research.CRIMSONPONTIFEX.stage.1=凭借成功从裂隙另一侧召唤生物的记录,你认为你知道血腥教派的教皇消失到哪里去了......<BR>当然,故意将明显怀有敌意的人从遗忘中带出来并不是最好的主意,但你仍然需要实证数据来支持你的理论.<BR>众所周知,裂隙会与物品产生共鸣,所以你需要一些与失踪者有关的东西.一本血腥仪式就很合适.
 research.CRIMSONPONTIFEX.stage.2=多年来处于幻象状态的不只是教皇,还有他的法衣.你知道复制它并不困难.<BR>穿上全套服装可以让你随时放弃你的物质完整性,代价是限制你的活动自由.<BR>按下H键切换此功能.<BR>尽管时间流逝,但对教皇精神力量的恐惧仍然渗透到教派的每一位成员身上.穿上全套制服,你对自己指挥血腥战士的能力充满信心.<BR>你的下属在精通治疗术且嗜血成性的教皇的率领下作战,将获得强大的力量.
 
-research.f_crimsonnotes.text=击败血腥教皇
+research.f_crimsonpontifex.text=击败血腥教皇
 
 research.CRIMSONINITIATION.title=血腥启蒙
 research.CRIMSONINITIATION.title.text=在这签字
-research.CRIMSONINITIATION.stage.1=身着教皇的法袍,你感觉到他的精神控制能力充斥着你.虽然你不是教派的成员,但其他人似乎并不这么认为,他们正在等待补充不断减少的队伍.<BR>你完全有能力做到这一点.穿上教皇的全套法衣,用你的血腥密令接触在掌握神秘学之路上失败的人之一,给他一次重生的机会.
+research.CRIMSONINITIATION.stage.1=身着教皇的法袍,你感觉到他的精神控制能力充斥着你.虽然你不是教派的成员,但其他人似乎并不这么认为,他们正在等待补充不断减少的队伍.<BR>你完全有能力做到这一点.穿上教皇的全套法衣,用你的血腥匕首接触在掌握神秘学之路上失败的人之一,给他一次重生的机会.
 
 research.PONTIFEXHAMMER.title=教皇战锤
 research.PONTIFEXHAMMER.title.text=真正的血腥武器

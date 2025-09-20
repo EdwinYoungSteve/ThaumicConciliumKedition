@@ -164,10 +164,6 @@
         "HEXOFPREDICTABILITY",
         "!CrimsonAnnales"
       ],
-      "siblings": [
-        "CRIMSONINITIATION",
-        "PONTIFEXHAMMER"
-      ],
       "category": "THAUMIC_CONCILIUM",
       "location": [
         0,
@@ -180,9 +176,9 @@
         {
           "text": "research.CRIMSONPONTIFEX.stage.1",
           "required_research": [
-            "f_crimsonnotes"
+            "f_crimsonpontifex"
           ],
-          "warp": 6
+          "warp": 4
         },
         {
           "text": "research.CRIMSONPONTIFEX.stage.2"
@@ -196,7 +192,7 @@
         "thaumicconcilium:textures/research/crimson_initiation.png"
       ],
       "parents": [
-        "CRIMSONPONTIFEX"
+        "CRIMSONPONTIFEX", "!CrimsonInitiation"
       ],
       "category": "THAUMIC_CONCILIUM",
       "location": [
@@ -209,7 +205,11 @@
       ],
       "stages": [
         {
-          "text": "research.CRIMSONINITIATION.stage.1"
+          "text": "research.CRIMSONINITIATION.stage.1",
+          "warp": 2,
+          "recipes": [
+            "thaumicconcilium:crimson_dagger"
+          ]
         }
       ]
     },
@@ -220,7 +220,7 @@
         "thaumicconcilium:molot"
       ],
       "parents": [
-        "CRIMSONPONTIFEX"
+        "CRIMSONPONTIFEX", "!PontifexHammer"
       ],
       "category": "THAUMIC_CONCILIUM",
       "location": [
@@ -236,7 +236,8 @@
           "text": "research.PONTIFEXHAMMER.stage.1",
           "recipes": [
             "thaumicconcilium:crimson_hammer"
-          ]
+          ],
+          "warp": 2
         }
       ]
     },

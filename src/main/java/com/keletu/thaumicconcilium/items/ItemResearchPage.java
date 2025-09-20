@@ -1,5 +1,6 @@
 package com.keletu.thaumicconcilium.items;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -50,6 +51,12 @@ public class ItemResearchPage extends Item {
                 if (stack.getMetadata() == 6) {
                     return 6.0F;
                 }
+                if (stack.getMetadata() == 7) {
+                    return 7.0F;
+                }
+                if (stack.getMetadata() == 8) {
+                    return 8.0F;
+                }
                 return 0.0F;
             }
         });
@@ -61,7 +68,7 @@ public class ItemResearchPage extends Item {
             return;
         }
 
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 9; i++) {
             items.add(new ItemStack(this, 1, i));
         }
     }
@@ -151,6 +158,28 @@ public class ItemResearchPage extends Item {
                             }
                         }
                         break;
+                    case 7:
+                        if (!ThaumcraftCapabilities.knowsResearch(player, "!PontifexHammer")) {
+                            if (ThaumcraftCapabilities.knowsResearchStrict(player, "CRIMSONPONTIFEX")) {
+                                ThaumcraftApi.internalMethods.completeResearch(player, "!PontifexHammer");
+                                world.playSound(null, player.getPosition(), SoundsTC.learn, SoundCategory.PLAYERS, 0.75F, 1.0F);
+                                stack.shrink(1);
+                            } else {
+                                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.tc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+                            }
+                        }
+                        break;
+                    case 8:
+                        if (!ThaumcraftCapabilities.knowsResearch(player, "!CrimsonInitiation")) {
+                            if (ThaumcraftCapabilities.knowsResearchStrict(player, "CRIMSONPONTIFEX")) {
+                                ThaumcraftApi.internalMethods.completeResearch(player, "!CrimsonInitiation");
+                                world.playSound(null, player.getPosition(), SoundsTC.learn, SoundCategory.PLAYERS, 0.75F, 1.0F);
+                                stack.shrink(1);
+                            } else {
+                                player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("tooltip.tc_book.4")).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+                            }
+                        }
+                        break;
                 }
             }
         }
@@ -161,28 +190,45 @@ public class ItemResearchPage extends Item {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World player, List<String> list, ITooltipFlag par4) {
         super.addInformation(stack, player, list, par4);
-        switch (stack.getItemDamage()) {
-            case 0:
-                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.5"));
-                break;
-            case 1:
-                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.6"));
-                break;
-            case 2:
-                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.7"));
-                break;
-            case 3:
-                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.8"));
-                break;
-            case 4:
-                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.9"));
-                break;
-            case 5:
-                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.10"));
-                break;
-            case 6:
-                list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.11"));
-                break;
+        EntityPlayer playerSP = Minecraft.getMinecraft().player;
+        if (playerSP != null) {
+            switch (stack.getItemDamage()) {
+                case 0:
+                    list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.5"));
+                    break;
+                case 1:
+                    list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.6"));
+                    break;
+                case 2:
+                    list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.7"));
+                    break;
+                case 3:
+                    list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.8"));
+                    break;
+                case 4:
+                    list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.9"));
+                    break;
+                case 5:
+                    list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.10"));
+                    break;
+                case 6:
+                    list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.11"));
+                    break;
+                case 7:
+                    if (!ThaumcraftCapabilities.knowsResearchStrict(playerSP, "CRIMSONPONTIFEX")) {
+                        list.add(TextFormatting.DARK_PURPLE + I18n.translateToLocal("thaumicaugmentation.text.research_notes_use"));
+                    } else {
+                        list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.12"));
+                    }
+                    break;
+                case 8:
+                    if (!ThaumcraftCapabilities.knowsResearchStrict(playerSP, "CRIMSONPONTIFEX")) {
+                        list.add(TextFormatting.DARK_PURPLE + I18n.translateToLocal("thaumicaugmentation.text.research_notes_use"));
+                    } else {
+                        list.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.tc_book.13"));
+                    }
+                    break;
+            }
         }
     }
 }

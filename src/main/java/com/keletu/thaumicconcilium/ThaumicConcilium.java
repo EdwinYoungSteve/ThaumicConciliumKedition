@@ -58,6 +58,7 @@ import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ScanEntity;
 import thaumcraft.api.research.ScanItem;
 import thaumcraft.api.research.ScanningManager;
+import thaumcraft.common.lib.enchantment.EnumInfusionEnchantment;
 import thecodex6824.thaumicaugmentation.api.TABlocks;
 import thecodex6824.thaumicaugmentation.api.TAItems;
 
@@ -158,7 +159,8 @@ public class ThaumicConcilium {
         ScanningManager.addScannableThing(new ScanEntity("!QuicksilverElemental", EntityQuicksilverElemental.class, true));
         ScanningManager.addScannableThing(new ScanEntity("!StrayedMirror", EntityStrayedMirror.class, true));
         ScanningManager.addScannableThing(new ScanEntity("!Samurai", EntitySamurai.class, true));
-        ScanningManager.addScannableThing(new ScanItem("f_crimsonnotes", new ItemStack(TCItems.research_notes_crimson)));
+        ScanningManager.addScannableThing(new ScanItem("f_crimsonpontifex", new ItemStack(TCItems.research_page, 1, 7)));
+        ScanningManager.addScannableThing(new ScanItem("f_crimsonpontifex", new ItemStack(TCItems.research_page, 1, 8)));
 
         ResearchCategories.registerCategory("THAUMIC_CONCILIUM", "!SpecialCreatures", null, new ResourceLocation("thaumicconcilium", "textures/research/r_thaumicconcilium.png"), new ResourceLocation(ThaumicConcilium.MODID, "textures/misc/tab_concilium.jpg"));
         ThaumcraftApi.registerResearchLocation(new ResourceLocation(MODID, "research/research.json"));
@@ -400,6 +402,21 @@ public class ThaumicConcilium {
                 'S', new ItemStack(BlocksTC.stoneArcane),
                 'F', TCItems.vis_conductor,
                 'C', new ItemStack(BlocksTC.rechargePedestal)));
+
+        ItemStack dagger = new ItemStack(TCItems.crimson_dagger);
+        EnumInfusionEnchantment.addInfusionEnchantment(dagger, EnumInfusionEnchantment.ESSENCE, 1);
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(MODID, "crimson_dagger"), new ShapedArcaneRecipe(new ResourceLocation(""),
+                "CRIMSONINITIATION",
+                60,
+                new AspectList().add(Aspect.WATER, 1).add(Aspect.EARTH, 1).add(Aspect.ENTROPY, 1).add(Aspect.AIR, 1).add(Aspect.FIRE, 1).add(Aspect.ORDER, 1),
+                dagger,
+                "  I",
+                " A ",
+                "L  ",
+                'I', "ingotIron",
+                'A', new ItemStack(BlocksTC.metalAlchemical),
+                'L', "logWood"));
+
 
         ItemStack hood = new ItemStack(TCItems.pontifex_hood);
         hood.setTagInfo("TC.RUNIC", new NBTTagByte((byte) 5));

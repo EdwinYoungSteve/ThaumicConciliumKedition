@@ -60,7 +60,7 @@ public class RegistryEvents {
         event.getRegistry().registerAll(TCItems.pontifex_boots);
         event.getRegistry().registerAll(TCItems.molot);
         event.getRegistry().registerAll(TCItems.crimson_annales);
-        event.getRegistry().registerAll(TCItems.research_notes_crimson);
+        event.getRegistry().registerAll(TCItems.crimson_dagger);
         event.getRegistry().registerAll(TCItems.runic_chestplate);
         event.getRegistry().registerAll(TCItems.runic_leggings);
         event.getRegistry().registerAll(TCItems.bottle_of_thick_taint);
@@ -85,7 +85,6 @@ public class RegistryEvents {
     public static void registerAspects(AspectRegistryEvent event) {
         AspectEventProxy proxy = event.register;
         proxy.registerComplexObjectTag(new ItemStack(TCItems.crimson_annales, 1, 0), new AspectList().add(Aspect.MIND, 30).add(IsorropiaAPI.HUNGER, 30).add(Aspect.ELDRITCH, 30).add(Aspect.MAN, 30));
-        proxy.registerComplexObjectTag(new ItemStack(TCItems.research_notes_crimson, 1, 0), new AspectList().add(Aspect.MIND, 66).add(Aspect.ELDRITCH, 66).add(IsorropiaAPI.WRATH, 66));
         proxy.registerComplexObjectTag(new ItemStack(TCItems.quicksilverCrucible, 1, 0), new AspectList().add(Aspect.METAL, 100).add(Aspect.MAGIC, 100).add(Aspect.FIRE, 30).add(IsorropiaAPI.FLESH, 10));
         proxy.registerComplexObjectTag(new ItemStack(TCItems.research_page, 1, 0), new AspectList().add(Aspect.MIND, 30));
         proxy.registerComplexObjectTag(new ItemStack(TCItems.research_page, 1, 1), new AspectList().add(Aspect.MIND, 30));
@@ -94,7 +93,15 @@ public class RegistryEvents {
         proxy.registerComplexObjectTag(new ItemStack(TCItems.research_page, 1, 4), new AspectList().add(Aspect.MIND, 30));
         proxy.registerComplexObjectTag(new ItemStack(TCItems.research_page, 1, 5), new AspectList().add(Aspect.MIND, 30));
         proxy.registerComplexObjectTag(new ItemStack(TCItems.research_page, 1, 6), new AspectList().add(Aspect.MIND, 30));
+        proxy.registerComplexObjectTag(new ItemStack(TCItems.research_page, 1, 7), new AspectList().add(Aspect.MIND, 66).add(Aspect.ELDRITCH, 66).add(IsorropiaAPI.WRATH, 66));
+        proxy.registerComplexObjectTag(new ItemStack(TCItems.research_page, 1, 8), new AspectList().add(Aspect.MIND, 66).add(Aspect.ELDRITCH, 66).add(IsorropiaAPI.WRATH, 66));
 
+        proxy.registerObjectTag(new ItemStack(TCItems.pontifex_hood), new AspectList().add(Aspect.MIND, 30).add(Aspect.CRAFT, 30).add(Aspect.PROTECT, 30).add(IsorropiaAPI.HUNGER, 30).add(IsorropiaAPI.PRIDE, 30));
+        proxy.registerObjectTag(new ItemStack(TCItems.pontifex_robe), new AspectList().add(Aspect.MIND, 30).add(Aspect.CRAFT, 30).add(Aspect.PROTECT, 30).add(IsorropiaAPI.HUNGER, 30).add(IsorropiaAPI.PRIDE, 30));
+        proxy.registerObjectTag(new ItemStack(TCItems.pontifex_legs), new AspectList().add(Aspect.MIND, 30).add(Aspect.CRAFT, 30).add(Aspect.PROTECT, 30).add(IsorropiaAPI.HUNGER, 30).add(IsorropiaAPI.PRIDE, 30));
+        proxy.registerObjectTag(new ItemStack(TCItems.pontifex_boots), new AspectList().add(Aspect.MIND, 30).add(Aspect.CRAFT, 30).add(Aspect.PROTECT, 30).add(IsorropiaAPI.HUNGER, 30).add(IsorropiaAPI.PRIDE, 30));
+
+        proxy.registerObjectTag(new ItemStack(TCItems.primordial_life), new AspectList().add(Aspect.LIFE, 250));
     }
 
     @SubscribeEvent

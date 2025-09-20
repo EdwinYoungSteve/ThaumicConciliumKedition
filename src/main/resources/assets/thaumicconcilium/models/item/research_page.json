@@ -39,6 +39,18 @@
         "meta": 6
       },
       "model": "thaumicconcilium:item/page_white"
+    },
+    {
+      "predicate": {
+        "meta": 7
+      },
+      "model": "thaumicconcilium:item/research_notes_crimson_black"
+    },
+    {
+      "predicate": {
+        "meta": 8
+      },
+      "model": "thaumicconcilium:item/research_notes_crimson_red"
     }
   ]
 }

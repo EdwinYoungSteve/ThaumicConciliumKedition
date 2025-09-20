@@ -42,7 +42,7 @@ public class ModelEvents {
         defaultModel(TCItems.pontifex_boots);
         defaultModel(TCItems.molot);
         defaultModel(TCItems.crimson_annales);
-        defaultModel(TCItems.research_notes_crimson);
+        defaultModel(TCItems.crimson_dagger);
         defaultModel(TCItems.runic_chestplate);
         defaultModel(TCItems.runic_leggings);
         defaultModel(TCItems.bottle_of_thick_taint);
@@ -53,6 +53,8 @@ public class ModelEvents {
         defaultModel(TCItems.research_page, 4);
         defaultModel(TCItems.research_page, 5);
         defaultModel(TCItems.research_page, 6);
+        defaultModel(TCItems.research_page, 7);
+        defaultModel(TCItems.research_page, 8);
         defaultModel(TCItems.vis_conductor);
         defaultModel(TCItems.vis_conductor, 1);
         defaultModel(TCItems.vis_conductor, 2);

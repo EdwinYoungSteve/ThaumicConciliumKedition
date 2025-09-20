@@ -14,9 +14,9 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import thaumcraft.api.aura.AuraHelper;
 
-public class RingOfBlusteringLight extends Item implements IBauble {
+public class ItemRingOfBlusteringLight extends Item implements IBauble {
 
-    public RingOfBlusteringLight() {
+    public ItemRingOfBlusteringLight() {
         this.setMaxStackSize(1);
     }
 

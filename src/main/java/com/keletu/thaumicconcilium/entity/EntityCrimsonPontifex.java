@@ -134,9 +134,22 @@ public class EntityCrimsonPontifex extends EntityThaumcraftBoss implements IRang
         return Item.getItemById(0);
     }
 
-    protected void dropFewItems(boolean flag, int fortune) {
-        EntityUtils.entityDropSpecialItem(this, new ItemStack(TCItems.research_notes_crimson), height / 2.0f);
-        entityDropItem(new ItemStack(ItemsTC.lootBag, 1, 2), 1.5f);
+    protected void dropFewItems(boolean flag, int i) {
+        this.entityDropItem(new ItemStack(ItemsTC.lootBag, 1, 2), 1.5F);
+        int r = this.rand.nextInt(10);
+        if (r <= 3) {
+            //Temp
+            EntityUtils.entityDropSpecialItem(this, new ItemStack(TCItems.research_page, 1, 7), height / 2.0f);
+            //EntityUtils.entityDropSpecialItem(this, new ItemStack(TCItems.research_page, 1, 9), height / 2.0f);
+        } else if (r <= 5) {
+            EntityUtils.entityDropSpecialItem(this, new ItemStack(TCItems.research_page, 1, 7), height / 2.0f);
+        } else if (r <= 8) {
+            //Temp
+            EntityUtils.entityDropSpecialItem(this, new ItemStack(TCItems.research_page, 1, 8), height / 2.0f);
+            //EntityUtils.entityDropSpecialItem(this, new ItemStack(TCItems.research_page, 1, 9), height / 2.0f);
+        } else {
+            EntityUtils.entityDropSpecialItem(this, new ItemStack(TCItems.research_page, 1, 8), height / 2.0f);
+        }
     }
 
     @Override

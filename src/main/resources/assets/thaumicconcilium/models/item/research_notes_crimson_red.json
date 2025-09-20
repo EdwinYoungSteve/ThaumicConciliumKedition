@@ -1,0 +1,6 @@
+{
+   "parent": "item/generated",
+   "textures": {
+       "layer0": "thaumicconcilium:items/research_notes_crimson_red"
+    }
+}
