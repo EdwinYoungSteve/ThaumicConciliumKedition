@@ -21,7 +21,8 @@ import thaumcraft.common.entities.monster.cult.EntityCultist;
 import thaumcraft.common.lib.SoundsTC;
 
 import javax.annotation.Nullable;
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EntityStrayedMirror extends EntityMob {
     public EntityStrayedMirror(World w) {
@@ -130,12 +131,10 @@ public class EntityStrayedMirror extends EntityMob {
             if ((ticksExisted % 40 == 0) && getAttackTarget() != null) {
                 EntityLivingBase target = getAttackTarget();
 
-                Collection<PotionEffect> potions = this.getActivePotionEffects();
-                if (!potions.isEmpty()) {
-                    for (PotionEffect potion : potions) {
-                        target.addPotionEffect(potion);
-                        this.removePotionEffect(potion.getPotion());
-                    }
+                List<PotionEffect> potions = new ArrayList<>(this.getActivePotionEffects());
+                for (PotionEffect potion : potions) {
+                    target.addPotionEffect(potion);
+                    this.removePotionEffect(potion.getPotion());
                 }
             }
         }
